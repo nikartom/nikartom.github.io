@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi!</h1>
+    <form action="">
+        <input type="text" placeholder="Name" id="name">
+        <input type="text" placeholder="nick" id="nick">
+        <input type="text" placeholder="Phone" id="phone"><input type="text">
+        <button id="order">Отправить</button>
+    </form>
+    <script>
+        let order = document.getElementById("order");
+        let tg = window.Telegram.WebApp;
+        order.addEventListener("click", ()=> {
+            let data = {
+                name: document.getElementById("name").value,
+                nick: document.getElementById("nick").value,
+                nick: document.getElementById("phone").value,
+            };
+            tg.sendData(JSON.stringify(data));
+            tg.close();
+        });
+    </script>
 </body>
 </html>
