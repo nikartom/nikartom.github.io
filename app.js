@@ -68,6 +68,10 @@ class DonationApp {
 
     async loadRecipientData() {
         try {
+            // Отладочная информация
+            console.log('🔍 Current URL:', window.location.href);
+            console.log('🔍 Search params:', window.location.search);
+            
             // Получаем параметры из URL
             const urlParams = new URLSearchParams(window.location.search);
             const recipientId = urlParams.get('recipient_id');
@@ -75,7 +79,14 @@ class DonationApp {
             const minAmount = urlParams.get('min_amount');
             const recipientWallet = urlParams.get('recipient_wallet');
             
+            console.log('🔍 URL Parameters:');
+            console.log('  recipient_id:', recipientId);
+            console.log('  recipient_name:', recipientName);
+            console.log('  min_amount:', minAmount);
+            console.log('  recipient_wallet:', recipientWallet);
+            
             if (!recipientId || !recipientName || !minAmount || !recipientWallet) {
+                console.error('❌ Missing required parameters');
                 throw new Error('Неверная ссылка для доната');
             }
 
@@ -91,8 +102,9 @@ class DonationApp {
             this.updateRecipientUI();
             
         } catch (error) {
-            console.error('Ошибка загрузки данных получателя:', error);
-            this.showError('Получатель не найден');
+            console.error('❌ Ошибка загрузки данных получателя:', error);
+            console.error('❌ Error details:', error.message);
+            this.showError('Получатель не найден: ' + error.message);
         }
     }
 
