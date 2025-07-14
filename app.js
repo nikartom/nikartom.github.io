@@ -59,7 +59,13 @@ class DonationApp {
         // Ждем загрузки библиотеки TON Connect UI
         if (typeof TonConnectUI === 'undefined') {
             console.log('🔄 Waiting for TonConnectUI to load...');
-            await this.waitForTonConnect();
+            const result = await this.waitForTonConnect();
+            
+            if (result === 'fallback') {
+                console.log('📱 Using fallback mode without TON Connect');
+                this.useFallbackMode = true;
+                return;
+            }
         }
         
         // Инициализация TON Connect
@@ -90,7 +96,8 @@ class DonationApp {
                 
                 attempts++;
                 if (attempts >= maxAttempts) {
-                    reject(new Error('TON Connect UI library failed to load'));
+                    console.warn('TON Connect UI library not available, using fallback mode');
+                    resolve('fallback');
                     return;
                 }
                 
@@ -288,6 +295,12 @@ Search: ${window.location.search}
 
     async connectWallet() {
         try {
+            if (this.useFallbackMode) {
+                // Показываем инструкцию для ручного подключения
+                this.showError('TON Connect недоступен. Используйте кошелек напрямую:\n\nАдрес: ' + this.recipient.wallet + '\nСумма: ' + this.amount + ' TON');
+                return;
+            }
+            
             await this.tonConnect.openModal();
             this.tg.HapticFeedback.impactOccurred('medium');
         } catch (error) {
@@ -308,6 +321,16 @@ Search: ${window.location.search}
     updateWalletUI() {
         const connectSection = document.getElementById('wallet-connect');
         const connectedSection = document.getElementById('wallet-connected');
+
+        if (this.useFallbackMode) {
+            // В fallback режиме показываем кнопку с инструкцией
+            connectSection.style.display = 'block';
+            connectedSection.style.display = 'none';
+            
+            const connectBtn = document.getElementById('connect-wallet');
+            connectBtn.textContent = '📱 Инструкция по оплате';
+            return;
+        }
 
         if (this.wallet) {
             // Кошелек подключен
@@ -346,6 +369,22 @@ Search: ${window.location.search}
 
     updateSendButton() {
         const sendButton = document.getElementById('send-donation');
+        
+        if (this.useFallbackMode) {
+            // В fallback режиме кнопка активна если выбрана сумма
+            const isValid = this.amount >= this.minAmount && this.recipient;
+            sendButton.disabled = !isValid;
+            
+            if (isValid) {
+                sendButton.textContent = `📋 Показать инструкцию`;
+            } else if (this.amount < this.minAmount) {
+                sendButton.textContent = `💰 Мин. ${this.minAmount} TON`;
+            } else {
+                sendButton.textContent = '📋 Показать инструкцию';
+            }
+            return;
+        }
+        
         const isValid = this.wallet && 
                        this.amount >= this.minAmount && 
                        this.recipient;
@@ -364,6 +403,12 @@ Search: ${window.location.search}
     }
 
     showConfirmation() {
+        if (this.useFallbackMode) {
+            // В fallback режиме сразу показываем инструкцию
+            this.sendDonation();
+            return;
+        }
+        
         if (!this.wallet || this.amount < this.minAmount) return;
 
         // Заполняем данные подтверждения
@@ -385,6 +430,26 @@ Search: ${window.location.search}
 
     async sendDonation() {
         try {
+            if (this.useFallbackMode) {
+                // В fallback режиме показываем инструкцию
+                const instructions = `
+💰 Инструкция по переводу:
+
+📍 Адрес получателя:
+${this.recipient.wallet}
+
+💵 Сумма: ${this.amount} TON
+
+💬 Комментарий: 
+don${Date.now()}_${this.tg.initDataUnsafe?.user?.id || 'unknown'}
+
+📱 Откройте любой TON кошелек и отправьте перевод с указанными данными.
+                `;
+                
+                this.showError(instructions);
+                return;
+            }
+            
             this.hideModal('confirmation-modal');
             
             // Создаем уникальный комментарий для транзакции
