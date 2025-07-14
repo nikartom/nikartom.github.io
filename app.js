@@ -69,25 +69,32 @@ class DonationApp {
     async loadRecipientData() {
         try {
             // Отладочная информация
-            console.log('🔍 Current URL:', window.location.href);
-            console.log('🔍 Search params:', window.location.search);
-            
             // Получаем параметры из URL
             const urlParams = new URLSearchParams(window.location.search);
+            
+            // Показываем отладочную информацию прямо в интерфейсе
+            const debugInfo = `
+🔍 ОТЛАДКА:
+URL: ${window.location.href}
+Search: ${window.location.search}
+
+Параметры:
+- recipient_id: ${urlParams.get('recipient_id') || 'НЕТ'}
+- recipient_name: ${urlParams.get('recipient_name') || 'НЕТ'}
+- min_amount: ${urlParams.get('min_amount') || 'НЕТ'}
+- recipient_wallet: ${urlParams.get('recipient_wallet') || 'НЕТ'}
+            `;
+            
+            // Временно показываем отладку
+            document.getElementById('recipient-info').innerHTML = `<pre style="font-size: 12px; background: #f0f0f0; padding: 10px; border-radius: 5px;">${debugInfo}</pre>`;
+            
             const recipientId = urlParams.get('recipient_id');
             const recipientName = urlParams.get('recipient_name');
             const minAmount = urlParams.get('min_amount');
             const recipientWallet = urlParams.get('recipient_wallet');
             
-            console.log('🔍 URL Parameters:');
-            console.log('  recipient_id:', recipientId);
-            console.log('  recipient_name:', recipientName);
-            console.log('  min_amount:', minAmount);
-            console.log('  recipient_wallet:', recipientWallet);
-            
             if (!recipientId || !recipientName || !minAmount || !recipientWallet) {
-                console.error('❌ Missing required parameters');
-                throw new Error('Неверная ссылка для доната');
+                throw new Error('Неверная ссылка для доната. Смотрите отладочную информацию выше.');
             }
 
             // Создаем объект получателя из URL параметров
