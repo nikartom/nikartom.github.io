@@ -68,28 +68,26 @@ class DonationApp {
 
     async loadRecipientData() {
         try {
-            // Получаем параметры из Telegram WebApp
-            const startParam = this.tg.initDataUnsafe?.start_param;
+            // Получаем параметры из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const recipientId = urlParams.get('recipient_id');
+            const recipientName = urlParams.get('recipient_name');
+            const minAmount = urlParams.get('min_amount');
+            const recipientWallet = urlParams.get('recipient_wallet');
             
-            if (!startParam || !startParam.startsWith('donate_')) {
+            if (!recipientId || !recipientName || !minAmount || !recipientWallet) {
                 throw new Error('Неверная ссылка для доната');
             }
 
-            const publicId = startParam.replace('donate_', '');
+            // Создаем объект получателя из URL параметров
+            this.recipient = {
+                public_id: recipientId,
+                name: decodeURIComponent(recipientName),
+                min_amount: parseFloat(minAmount),
+                description: 'Поддержите стримера!',
+                wallet: decodeURIComponent(recipientWallet)
+            };
             
-            // Загружаем данные получателя
-            const response = await fetch(`/api/miniapp/user/${publicId}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Получатель не найден');
-            }
-
-            this.recipient = await response.json();
             this.updateRecipientUI();
             
         } catch (error) {
@@ -355,15 +353,8 @@ class DonationApp {
             const result = await this.tonConnect.sendTransaction(transaction);
             
             if (result) {
-                // Уведомляем бэкенд о донате
-                await this.notifyBackend({
-                    transaction: result,
-                    amount: this.amount,
-                    message: this.message,
-                    recipientId: this.recipient.public_id,
-                    comment: comment,
-                    sender: this.tg.initDataUnsafe?.user
-                });
+                // Уведомления будут обработаны через систему мониторинга транзакций бота
+                console.log('Транзакция отправлена, уведомления будут обработаны автоматически');
                 
                 this.showSuccess();
                 this.tg.HapticFeedback.notificationOccurred('success');
@@ -396,25 +387,7 @@ class DonationApp {
         }
     }
 
-    async notifyBackend(data) {
-        try {
-            const response = await fetch('/api/miniapp/notify-donation', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Telegram-Init-Data': this.tg.initData
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (!response.ok) {
-                throw new Error('Ошибка уведомления сервера');
-            }
-        } catch (error) {
-            console.error('Ошибка уведомления бэкенда:', error);
-            // Не показываем ошибку пользователю, так как транзакция уже отправлена
-        }
-    }
+    // Метод notifyBackend удален - уведомления обрабатываются через систему мониторинга транзакций бота
 
     showSuccess() {
         this.showModal('success-modal');
