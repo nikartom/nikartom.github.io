@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonatTG - Донаты</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Заставка загрузки -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Загрузка...</p>
+        </div>
+
+        <!-- Основной интерфейс -->
+        <div id="main-content" class="main-content" style="display: none;">
+            <!-- Заголовок -->
+            <div class="header">
+                <h1>💰 Донат</h1>
+                <div class="streamer-info">
+                    <div class="streamer-avatar">
+                        <span id="streamer-initial">S</span>
+                    </div>
+                    <div class="streamer-details">
+                        <h2 id="streamer-name">Загрузка...</h2>
+                        <p id="streamer-description"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Форма доната -->
+            <div class="donation-form">
+                <!-- Выбор суммы -->
+                <div class="section">
+                    <h3>💸 Сумма доната</h3>
+                    <div class="amount-grid" id="amount-buttons">
+                        <button class="amount-btn" data-amount="0.5">0.5 TON</button>
+                        <button class="amount-btn" data-amount="1">1 TON</button>
+                        <button class="amount-btn" data-amount="5">5 TON</button>
+                        <button class="amount-btn" data-amount="10">10 TON</button>
+                    </div>
+                    <div class="custom-amount">
+                        <input type="number" id="custom-amount" placeholder="Введите сумму" 
+                               step="0.1" min="0.1" class="amount-input">
+                        <span class="currency">TON</span>
+                    </div>
+                    <div class="amount-info">
+                        <p>Минимальная сумма: <span id="min-amount">0.5</span> TON</p>
+                        <p>К получению: <span id="final-amount">0</span> TON (комиссия 5%)</p>
+                    </div>
+                </div>
+
+                <!-- Сообщение -->
+                <div class="section">
+                    <h3>💬 Сообщение (необязательно)</h3>
+                    <textarea id="donation-message" placeholder="Напишите сообщение стримеру..." 
+                              maxlength="250" class="message-input"></textarea>
+                    <div class="message-counter">
+                        <span id="char-counter">0</span>/250
+                    </div>
+                </div>
+
+                <!-- Кошелек и оплата -->
+                <div class="section">
+                    <h3>👛 Кошелек</h3>
+                    <div id="wallet-section">
+                        <div id="wallet-connect">
+                            <button id="connect-wallet-btn" class="primary-btn">
+                                🔗 Подключить кошелек
+                            </button>
+                            <p class="wallet-hint">Поддерживаются все TON кошельки</p>
+                        </div>
+
+                        <div id="wallet-connected" style="display: none;">
+                            <div class="wallet-info">
+                                <div class="wallet-avatar">👛</div>
+                                <div class="wallet-details">
+                                    <p class="wallet-address" id="wallet-address"></p>
+                                    <p class="wallet-balance">Баланс: <span id="wallet-balance">...</span> TON</p>
+                                </div>
+                                <button id="disconnect-btn" class="disconnect-btn">✕</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка отправки -->
+                <div class="section">
+                    <button id="send-donation" class="send-btn" disabled>
+                        🚀 Отправить донат
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно подтверждения -->
+        <div id="confirmation-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h3>✅ Подтвердите донат</h3>
+                <div class="confirmation-details">
+                    <div class="detail-row">
+                        <span>Получатель:</span>
+                        <span id="confirm-recipient"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Сумма:</span>
+                        <span id="confirm-amount"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>К получению:</span>
+                        <span id="confirm-final"></span>
+                    </div>
+                    <div class="detail-row" id="confirm-message-row" style="display: none;">
+                        <span>Сообщение:</span>
+                        <span id="confirm-message"></span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="confirm-send" class="primary-btn">Подтвердить</button>
+                    <button id="cancel-send" class="secondary-btn">Отмена</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно успеха -->
+        <div id="success-modal" class="modal" style="display: none;">
+            <div class="modal-content success">
+                <div class="success-icon">🎉</div>
+                <h3>Донат отправлен!</h3>
+                <p>Спасибо за поддержку!</p>
+                <button id="close-app" class="primary-btn">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно ошибки -->
+        <div id="error-modal" class="modal" style="display: none;">
+            <div class="modal-content error">
+                <div class="error-icon">❌</div>
+                <h3>Ошибка</h3>
+                <p id="error-message">Что-то пошло не так</p>
+                <button id="close-error" class="secondary-btn">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
