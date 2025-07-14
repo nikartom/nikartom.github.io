@@ -34,7 +34,11 @@ class DonationApp {
             
         } catch (error) {
             console.error('Ошибка инициализации:', error);
-            this.showError('Ошибка загрузки приложения');
+            if (error.message.includes('TON Connect UI library failed to load')) {
+                this.showError('Не удалось загрузить библиотеку TON Connect. Проверьте интернет-соединение.');
+            } else {
+                this.showError('Ошибка загрузки приложения: ' + error.message);
+            }
         }
     }
 
@@ -52,6 +56,12 @@ class DonationApp {
     }
 
     async initTonConnect() {
+        // Ждем загрузки библиотеки TON Connect UI
+        if (typeof TonConnectUI === 'undefined') {
+            console.log('🔄 Waiting for TonConnectUI to load...');
+            await this.waitForTonConnect();
+        }
+        
         // Инициализация TON Connect
         this.tonConnect = new TonConnectUI({
             manifestUrl: `${window.location.origin}/tonconnect-manifest.json`,
@@ -63,6 +73,31 @@ class DonationApp {
             this.wallet = wallet;
             this.updateWalletUI();
             this.updateSendButton();
+        });
+    }
+
+    async waitForTonConnect() {
+        // Ждем загрузки библиотеки TON Connect UI максимум 10 секунд
+        return new Promise((resolve, reject) => {
+            let attempts = 0;
+            const maxAttempts = 100; // 10 секунд (100 * 100ms)
+            
+            const checkTonConnect = () => {
+                if (typeof TonConnectUI !== 'undefined') {
+                    resolve();
+                    return;
+                }
+                
+                attempts++;
+                if (attempts >= maxAttempts) {
+                    reject(new Error('TON Connect UI library failed to load'));
+                    return;
+                }
+                
+                setTimeout(checkTonConnect, 100);
+            };
+            
+            checkTonConnect();
         });
     }
 
