@@ -1,152 +1,342 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DonatTG - Донаты</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tonconnect/ui@2.0.9/dist/tonconnect-ui.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StreamNumDeck — Numpad Control Deck for OBS &amp; Windows</title>
+  <meta name="description" content="Turn your numpad into an OBS control deck for Windows. Switch scenes, control audio, run keyboard macros, and build automations with up to 44 actions.">
+  <meta name="author" content="nikartom">
+  <meta name="application-name" content="StreamNumDeck">
+  <meta name="theme-color" content="#f2f0e9">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://nikartom.github.io/">
+  <link rel="alternate" hreflang="en" href="https://nikartom.github.io/">
+  <link rel="alternate" hreflang="ru" href="https://nikartom.github.io/ru/">
+  <link rel="alternate" hreflang="x-default" href="https://nikartom.github.io/">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./styles.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StreamNumDeck">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:title" content="StreamNumDeck — Numpad Control Deck for OBS">
+  <meta property="og:description" content="Control OBS, audio, apps, macros, and complete streaming routines from the keyboard you already own.">
+  <meta property="og:url" content="https://nikartom.github.io/">
+  <meta property="og:image" content="https://nikartom.github.io/assets/app-deck-filled.png">
+  <meta property="og:image:width" content="1038">
+  <meta property="og:image:height" content="1515">
+  <meta property="og:image:alt" content="StreamNumDeck with a configured streaming control profile">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="StreamNumDeck — Numpad Control Deck for OBS">
+  <meta name="twitter:description" content="Turn your numpad into a customizable control deck for OBS, audio, apps, macros, and automations.">
+  <meta name="twitter:image" content="https://nikartom.github.io/assets/app-deck-filled.png">
+  <meta name="twitter:image:alt" content="StreamNumDeck with a configured streaming control profile">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://nikartom.github.io/#website",
+        "url": "https://nikartom.github.io/",
+        "name": "StreamNumDeck",
+        "alternateName": "Stream Num Deck",
+        "inLanguage": ["en", "ru"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://nikartom.github.io/#software",
+        "name": "StreamNumDeck",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "OBS and streaming control software",
+        "operatingSystem": "Windows 10, Windows 11",
+        "softwareRequirements": "Windows 10 version 1903 or newer, or Windows 11",
+        "softwareVersion": "1.2.0",
+        "dateModified": "2026-07-15",
+        "inLanguage": "en",
+        "description": "Turn a numeric keypad into a customizable control deck for OBS Studio, audio, applications, keyboard macros, and multi-step automations.",
+        "featureList": [
+          "Up to 44 actions in every profile",
+          "OBS Studio scene, source, recording, streaming, and replay controls",
+          "Windows master and per-application audio controls",
+          "Keyboard macros and application launch actions",
+          "Multi-step automations with configurable pauses",
+          "22 interface languages",
+          "No telemetry or advertising"
+        ],
+        "image": "https://nikartom.github.io/assets/app-deck-filled.png",
+        "screenshot": "https://nikartom.github.io/assets/app-deck-filled.png",
+        "url": "https://nikartom.github.io/",
+        "downloadUrl": "https://github.com/nikartom/StreamNumDeck/releases/latest",
+        "installUrl": "https://github.com/nikartom/StreamNumDeck/releases/latest",
+        "sameAs": "https://github.com/nikartom/StreamNumDeck",
+        "license": "https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md",
+        "author": {
+          "@type": "Person",
+          "name": "nikartom",
+          "url": "https://github.com/nikartom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://github.com/nikartom/StreamNumDeck/releases/latest",
+          "description": "Free for personal and other permitted non-commercial use; commercial use requires separate permission."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <div id="app">
-        <!-- Заставка загрузки -->
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
-            <p>Загрузка...</p>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <!-- Основной интерфейс -->
-        <div id="main-content" class="main-content" style="display: none;">
-            <!-- Заголовок -->
-            <div class="header">
-                <h1>💰 Донат</h1>
-                <div class="streamer-info">
-                    <div class="streamer-avatar">
-                        <span id="streamer-initial">S</span>
-                    </div>
-                    <div class="streamer-details">
-                        <h2 id="streamer-name">Загрузка...</h2>
-                        <p id="streamer-description"></p>
-                    </div>
-                </div>
-            </div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="StreamNumDeck home">
+      <span class="brand-mark" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span>StreamNumDeck</span>
+    </a>
 
-            <!-- Форма доната -->
-            <div class="donation-form">
-                <!-- Выбор суммы -->
-                <div class="section">
-                    <h3>💸 Сумма доната</h3>
-                    <div class="amount-grid" id="amount-buttons">
-                        <button class="amount-btn" data-amount="0.5">0.5 TON</button>
-                        <button class="amount-btn" data-amount="1">1 TON</button>
-                        <button class="amount-btn" data-amount="5">5 TON</button>
-                        <button class="amount-btn" data-amount="10">10 TON</button>
-                    </div>
-                    <div class="custom-amount">
-                        <input type="number" id="custom-amount" placeholder="Введите сумму" 
-                               step="0.1" min="0.1" class="amount-input">
-                        <span class="currency">TON</span>
-                    </div>
-                    <div class="amount-info">
-                        <p>Минимальная сумма: <span id="min-amount">0.5</span> TON</p>
-                        <p>К получению: <span id="final-amount">0</span> TON (комиссия 5%)</p>
-                    </div>
-                </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#automation">Automation</a>
+      <a href="#faq">FAQ</a>
+    </nav>
 
-                <!-- Сообщение -->
-                <div class="section">
-                    <h3>💬 Сообщение (необязательно)</h3>
-                    <textarea id="donation-message" placeholder="Напишите сообщение стримеру..." 
-                              maxlength="250" class="message-input"></textarea>
-                    <div class="message-counter">
-                        <span id="char-counter">0</span>/250
-                    </div>
-                </div>
-
-                <!-- Кошелек и оплата -->
-                <div class="section">
-                    <h3>👛 Кошелек</h3>
-                    <div id="wallet-section">
-                        <div id="wallet-connect">
-                            <button id="connect-wallet-btn" class="primary-btn">
-                                🔗 Подключить кошелек
-                            </button>
-                            <p class="wallet-hint">Поддерживаются все TON кошельки</p>
-                        </div>
-
-                        <div id="wallet-connected" style="display: none;">
-                            <div class="wallet-info">
-                                <div class="wallet-avatar">👛</div>
-                                <div class="wallet-details">
-                                    <p class="wallet-address" id="wallet-address"></p>
-                                    <p class="wallet-balance">Баланс: <span id="wallet-balance">...</span> TON</p>
-                                </div>
-                                <button id="disconnect-btn" class="disconnect-btn">✕</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Кнопка отправки -->
-                <div class="section">
-                    <button id="send-donation" class="send-btn" disabled>
-                        🚀 Отправить донат
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Модальное окно подтверждения -->
-        <div id="confirmation-modal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <h3>✅ Подтвердите донат</h3>
-                <div class="confirmation-details">
-                    <div class="detail-row">
-                        <span>Получатель:</span>
-                        <span id="confirm-recipient"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Сумма:</span>
-                        <span id="confirm-amount"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span>К получению:</span>
-                        <span id="confirm-final"></span>
-                    </div>
-                    <div class="detail-row" id="confirm-message-row" style="display: none;">
-                        <span>Сообщение:</span>
-                        <span id="confirm-message"></span>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button id="confirm-send" class="primary-btn">Подтвердить</button>
-                    <button id="cancel-send" class="secondary-btn">Отмена</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Модальное окно успеха -->
-        <div id="success-modal" class="modal" style="display: none;">
-            <div class="modal-content success">
-                <div class="success-icon">🎉</div>
-                <h3>Донат отправлен!</h3>
-                <p>Спасибо за поддержку!</p>
-                <button id="close-app" class="primary-btn">Закрыть</button>
-            </div>
-        </div>
-
-        <!-- Модальное окно ошибки -->
-        <div id="error-modal" class="modal" style="display: none;">
-            <div class="modal-content error">
-                <div class="error-icon">❌</div>
-                <h3>Ошибка</h3>
-                <p id="error-message">Что-то пошло не так</p>
-                <button id="close-error" class="secondary-btn">Закрыть</button>
-            </div>
-        </div>
+    <div class="header-tools">
+      <a class="language-link" href="./ru/" lang="ru" hreflang="ru">RU</a>
+      <a class="header-download" href="https://github.com/nikartom/StreamNumDeck/releases/latest">
+        Download <span aria-hidden="true">↗</span>
+      </a>
     </div>
+  </header>
 
-    <script src="app.js"></script>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="live-label"><span></span> StreamNumDeck / Windows control deck</p>
+        <h1>Your numpad.<br><em>Your control deck.</em></h1>
+        <p class="hero-lead">
+          Control OBS, audio, apps, macros, and complete streaming routines from the keyboard you already own.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/nikartom/StreamNumDeck/releases/latest">
+            Download for Windows <span aria-hidden="true">→</span>
+          </a>
+          <a class="button button-secondary" href="https://github.com/nikartom/StreamNumDeck">
+            View on GitHub
+          </a>
+        </div>
+        <p class="hero-meta">Windows 10–11 <b>·</b> Setup or portable <b>·</b> No telemetry</p>
+      </div>
+
+      <div class="hero-product" aria-label="StreamNumDeck application preview">
+        <div class="hero-counter" aria-hidden="true">
+          <strong>22 × 2</strong>
+          <span>keys / layers</span>
+        </div>
+        <div class="screenshot-shell">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="./assets/app-deck-filled-520.webp 520w, ./assets/app-deck-filled-820.webp 820w, ./assets/app-deck-filled-1038.webp 1038w"
+              sizes="(max-width: 560px) 78vw, 405px">
+            <img src="./assets/app-deck-filled.png" width="1038" height="1515" fetchpriority="high" decoding="async" alt="StreamNumDeck showing a fully configured streaming control profile">
+          </picture>
+        </div>
+        <div class="product-note note-obs"><span></span> OBS connected</div>
+        <div class="product-note note-actions">Up to 44 actions</div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Highlights">
+      <div>
+        <span>OBS Studio</span><b>✦</b>
+        <span>System audio</span><b>✦</b>
+        <span>Keyboard macros</span><b>✦</b>
+        <span>Multi-step automation</span><b>✦</b>
+        <span>22 interface languages</span>
+      </div>
+    </section>
+
+    <section class="deck-section" aria-labelledby="deck-title">
+      <div class="section-heading section-heading-dark">
+        <p class="section-index">01 / Two layers</p>
+        <h2 id="deck-title">Press a key.<br>Stay in the moment.</h2>
+        <p>Try the deck. NumLock switches between two independent layers without interrupting your game or stream.</p>
+      </div>
+
+      <div class="deck-demo">
+        <div class="deck-status" aria-live="polite">
+          <span><i></i> Layer <strong id="layer-status">A</strong></span>
+          <span id="action-status">Ready</span>
+        </div>
+
+        <div class="navigation-keys" aria-label="Navigation key actions">
+          <button class="deck-key" data-key="Ins" data-a="Starting Soon" data-b="Browser" type="button"><small>Ins</small><strong>Starting</strong></button>
+          <button class="deck-key" data-key="Home" data-a="Gameplay" data-b="Discord" type="button"><small>Home</small><strong>Gameplay</strong></button>
+          <button class="deck-key" data-key="PgUp" data-a="Just Chatting" data-b="Dashboard" type="button"><small>PgUp</small><strong>Chatting</strong></button>
+          <button class="deck-key" data-key="Del" data-a="Stop stream" data-b="Open folder" type="button"><small>Del</small><strong>Stop</strong></button>
+          <button class="deck-key" data-key="End" data-a="Toggle webcam" data-b="Keyboard macro" type="button"><small>End</small><strong>Webcam</strong></button>
+          <button class="deck-key" data-key="PgDn" data-a="Save replay" data-b="Sound effect" type="button"><small>PgDn</small><strong>Replay</strong></button>
+        </div>
+
+        <div class="numpad" aria-label="Interactive numeric keypad">
+          <button class="deck-key layer-key" data-key="NumLock" type="button" aria-pressed="false"><small>Num</small><strong>Layer A</strong></button>
+          <button class="deck-key" data-key="/" data-a="Previous track" data-b="Volume down" type="button"><small>/</small><strong>Previous</strong></button>
+          <button class="deck-key" data-key="*" data-a="Play or pause" data-b="Volume up" type="button"><small>*</small><strong>Play</strong></button>
+          <button class="deck-key" data-key="-" data-a="Volume down" data-b="Master mute" type="button"><small>−</small><strong>Vol −</strong></button>
+          <button class="deck-key" data-key="7" data-a="Microphone mute" data-b="Launch OBS" type="button"><small>7</small><strong>Mic</strong></button>
+          <button class="deck-key" data-key="8" data-a="Desktop audio" data-b="Launch Discord" type="button"><small>8</small><strong>Desktop</strong></button>
+          <button class="deck-key" data-key="9" data-a="Play sound effect" data-b="Stream dashboard" type="button"><small>9</small><strong>Sound FX</strong></button>
+          <button class="deck-key key-tall key-add" data-key="+" data-a="Volume up" data-b="Next track" type="button"><small>+</small><strong>Vol +</strong></button>
+          <button class="deck-key" data-key="4" data-a="Switch scene" data-b="Open website" type="button"><small>4</small><strong>Scene</strong></button>
+          <button class="deck-key" data-key="5" data-a="Toggle source" data-b="Open file" type="button"><small>5</small><strong>Source</strong></button>
+          <button class="deck-key" data-key="6" data-a="Mute OBS input" data-b="Open app" type="button"><small>6</small><strong>OBS Mic</strong></button>
+          <button class="deck-key" data-key="1" data-a="Start recording" data-b="Work profile" type="button"><small>1</small><strong>Record</strong></button>
+          <button class="deck-key" data-key="2" data-a="Stream setup automation" data-b="Game profile" type="button"><small>2</small><strong>Routine</strong></button>
+          <button class="deck-key" data-key="3" data-a="Keyboard macro" data-b="Edit profile" type="button"><small>3</small><strong>Macro</strong></button>
+          <button class="deck-key key-tall key-enter" data-key="Enter" data-a="Go live automation" data-b="Switch profile" type="button"><small>Enter</small><strong>Go live</strong></button>
+          <button class="deck-key key-wide" data-key="0" data-a="BRB scene" data-b="Home scene" type="button"><small>0</small><strong>BRB</strong></button>
+          <button class="deck-key" data-key="." data-a="Master mute" data-b="Pause capture" type="button"><small>.</small><strong>Mute</strong></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="section-heading">
+        <p class="section-index">02 / What it does</p>
+        <h2 id="features-title">One small app.<br>A lot fewer interruptions.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature feature-wide">
+          <span class="feature-number">01</span>
+          <p class="feature-tag">OBS Studio</p>
+          <h3>Run the show without Alt+Tab.</h3>
+          <p>Switch scenes, toggle sources and inputs, control recording and streaming, or save the replay buffer.</p>
+          <div class="scene-strip" aria-hidden="true"><span>STARTING</span><span class="active">GAMEPLAY</span><span>CHATTING</span></div>
+        </article>
+
+        <article class="feature">
+          <span class="feature-number">02</span>
+          <p class="feature-tag">Audio</p>
+          <h3>Control every signal.</h3>
+          <p>Mute your microphone or adjust Windows, master, and per-app volume.</p>
+          <div class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+
+        <article class="feature feature-accent">
+          <span class="feature-number">03</span>
+          <p class="feature-tag">No new hardware</p>
+          <h3>Use the keyboard already on your desk.</h3>
+          <p>Your numeric keypad and six-key navigation block become a programmable control surface.</p>
+          <strong class="big-stat">44</strong><small>actions per profile</small>
+        </article>
+
+        <article class="feature">
+          <span class="feature-number">04</span>
+          <p class="feature-tag">System</p>
+          <h3>Launch anything.</h3>
+          <p>Open an app, file, folder, website, or run a complete keyboard shortcut sequence.</p>
+        </article>
+
+        <article class="feature feature-wide feature-privacy">
+          <span class="feature-number">05</span>
+          <p class="feature-tag">Local by design</p>
+          <h3>Your setup stays yours.</h3>
+          <p>No telemetry and no advertising. Profiles, settings, icons, and logs stay on your computer.</p>
+          <div class="privacy-stamp" aria-hidden="true">NO<br>TELEMETRY</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="automation" id="automation" aria-labelledby="automation-title">
+      <div class="automation-copy">
+        <p class="section-index">03 / Automation</p>
+        <h2 id="automation-title">One key.<br>The whole routine.</h2>
+        <p>Combine OBS, audio, system actions, keyboard macros, and configurable pauses into a sequence built around your workflow.</p>
+        <div class="routine-line" aria-label="Example automation sequence">
+          <span>MIC</span><b>→</b><span>WEBCAM</span><b>→</b><span>3 SEC</span><b>→</b><span>SCENE</span>
+        </div>
+      </div>
+
+      <div class="automation-panel" aria-label="Example automation editor">
+        <div class="panel-header"><span>Stream setup</span><small>AUTOMATION / 04 STEPS</small></div>
+        <ol class="automation-steps">
+          <li><span>01</span><div><strong>Microphone</strong><small>Toggle the default microphone</small></div><b>MIC</b></li>
+          <li><span>02</span><div><strong>Toggle source</strong><small>Webcam</small></div><b>OBS</b></li>
+          <li class="pause-step"><span>03</span><div><strong>Pause</strong><small>Wait before the next step</small></div><b>3 SEC</b></li>
+          <li><span>04</span><div><strong>Switch scene</strong><small>Gameplay</small></div><b>OBS</b></li>
+        </ol>
+        <div class="panel-footer"><span>NUM 2</span><button type="button">SAVE ROUTINE</button></div>
+      </div>
+    </section>
+
+    <section class="languages" aria-labelledby="languages-title">
+      <div>
+        <p class="section-index">04 / Worldwide</p>
+        <h2 id="languages-title">Speaks your language.</h2>
+      </div>
+      <div class="language-count"><strong>22</strong><span>interface<br>languages</span></div>
+      <p>English, Russian, German, French, Spanish, Portuguese, Italian, Polish, Ukrainian, Turkish, Dutch, Swedish, Czech, Romanian, Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Vietnamese, and Thai.</p>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="section-heading">
+        <p class="section-index">05 / Good to know</p>
+        <h2 id="faq-title">Questions,<br>answered.</h2>
+      </div>
+
+      <div class="faq-list">
+        <details open>
+          <summary>What do I need to run StreamNumDeck?<span>+</span></summary>
+          <p>Windows 10 version 1903 or newer, or Windows 11. A numeric keypad is recommended; the six-key navigation block can be captured independently.</p>
+        </details>
+        <details>
+          <summary>Does it work with current OBS Studio?<span>+</span></summary>
+          <p>Yes. StreamNumDeck uses the OBS WebSocket 5.x interface built into current OBS Studio releases.</p>
+        </details>
+        <details>
+          <summary>Do I have to install it?<span>+</span></summary>
+          <p>No. Choose the regular per-user Setup or download the portable ZIP, extract it, and run StreamNumDeck.exe.</p>
+        </details>
+        <details>
+          <summary>Why can SmartScreen show a warning?<span>+</span></summary>
+          <p>The installer is not digitally signed yet. Download it only from the official GitHub repository and verify the published SHA-256 hash if needed.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <p class="live-label"><span></span> Ready when you are</p>
+      <h2>Turn spare keys<br>into useful ones.</h2>
+      <a class="button button-light" href="https://github.com/nikartom/StreamNumDeck/releases/latest">
+        Download StreamNumDeck <span aria-hidden="true">→</span>
+      </a>
+      <p>Free for personal and other permitted non-commercial use.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand brand-footer" href="#top">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span>StreamNumDeck</span>
+    </a>
+    <p>Made by nikartom · © 2026</p>
+    <div>
+      <a href="https://github.com/nikartom/StreamNumDeck">GitHub</a>
+      <a href="./ru/" lang="ru" hreflang="ru">Русский</a>
+      <a href="https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md">License</a>
+      <a href="https://www.donationalerts.com/r/kventinburatino">Support</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
 </body>
-</html> 
+</html>
