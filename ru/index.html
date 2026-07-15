@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StreamNumDeck — стрим-дек из цифровой клавиатуры для OBS</title>
-  <meta name="description" content="Превратите цифровой блок клавиатуры в панель управления OBS для Windows. Переключайте сцены, управляйте звуком, макросами и автоматизациями.">
+  <title>StreamNumDeck — превратите нампад в пульт для OBS</title>
+  <meta name="description" content="Управляйте сценами OBS, веб-камерой, микрофоном, звуком, программами и сценариями с цифрового блока клавиатуры. Попробуйте демо StreamNumDeck.">
   <meta name="author" content="nikartom">
   <meta name="application-name" content="StreamNumDeck">
-  <meta name="theme-color" content="#f2f0e9">
+  <meta name="theme-color" content="#071a2b">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://streamnumdeck.com/ru/">
   <link rel="alternate" hreflang="en" href="https://streamnumdeck.com/">
@@ -15,23 +15,23 @@
   <link rel="alternate" hreflang="x-default" href="https://streamnumdeck.com/">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js" defer></script>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="StreamNumDeck">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:title" content="StreamNumDeck — стрим-дек из обычного нампада">
-  <meta property="og:description" content="Управляйте OBS, звуком, приложениями, макросами и целыми сценариями с цифровой клавиатуры.">
+  <meta property="og:title" content="StreamNumDeck — нампад становится вашим пультом">
+  <meta property="og:description" content="Управляйте OBS, звуком, программами, макросами и целыми сценариями с клавиатуры, которая у вас уже есть.">
   <meta property="og:url" content="https://streamnumdeck.com/ru/">
   <meta property="og:image" content="https://streamnumdeck.com/assets/app-deck-filled.png">
   <meta property="og:image:width" content="1038">
   <meta property="og:image:height" content="1515">
-  <meta property="og:image:alt" content="StreamNumDeck с настроенным профилем управления стримом">
+  <meta property="og:image:alt" content="StreamNumDeck, настроенный как пульт для управления трансляцией в OBS">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="StreamNumDeck — стрим-дек из обычного нампада">
-  <meta name="twitter:description" content="Превратите цифровой блок клавиатуры в панель управления OBS, звуком, макросами и автоматизациями.">
+  <meta name="twitter:title" content="StreamNumDeck — нампад становится вашим пультом">
+  <meta name="twitter:description" content="Превратите обычный нампад в настраиваемый пульт для OBS, звука, программ, макросов и автоматизаций.">
   <meta name="twitter:image" content="https://streamnumdeck.com/assets/app-deck-filled.png">
-  <meta name="twitter:image:alt" content="StreamNumDeck с настроенным профилем управления стримом">
 
   <script type="application/ld+json">
   {
@@ -40,7 +40,7 @@
       {
         "@type": "WebSite",
         "@id": "https://streamnumdeck.com/#website",
-        "url": "https://streamnumdeck.com/",
+        "url": "https://streamnumdeck.com/ru/",
         "name": "StreamNumDeck",
         "alternateName": "Stream Num Deck",
         "inLanguage": ["en", "ru"]
@@ -50,19 +50,19 @@
         "@id": "https://streamnumdeck.com/#software",
         "name": "StreamNumDeck",
         "applicationCategory": "MultimediaApplication",
-        "applicationSubCategory": "Программа для управления OBS и стримом",
+        "applicationSubCategory": "Программа для управления OBS и трансляциями",
         "operatingSystem": "Windows 10, Windows 11",
         "softwareRequirements": "Windows 10 версии 1903 или новее либо Windows 11",
         "softwareVersion": "1.2.0",
         "dateModified": "2026-07-15",
         "inLanguage": "ru",
-        "description": "Превращает цифровой блок клавиатуры в настраиваемую панель управления OBS Studio, звуком, приложениями, клавиатурными макросами и многошаговыми автоматизациями.",
+        "description": "Превращает цифровой блок клавиатуры в настраиваемый пульт для OBS Studio, звука, программ, макросов и многошаговых сценариев.",
         "featureList": [
           "До 44 действий в каждом профиле",
           "Управление сценами, источниками, записью, трансляцией и буфером повтора OBS Studio",
-          "Управление общей громкостью Windows и звуком отдельных приложений",
-          "Клавиатурные макросы и запуск приложений",
-          "Многошаговые автоматизации с настраиваемыми паузами",
+          "Управление общим звуком Windows и громкостью отдельных программ",
+          "Клавиатурные макросы и запуск программ",
+          "Многошаговые сценарии с настраиваемыми паузами",
           "22 языка интерфейса",
           "Без телеметрии и рекламы"
         ],
@@ -73,11 +73,7 @@
         "installUrl": "https://github.com/nikartom/StreamNumDeck/releases/latest",
         "sameAs": "https://github.com/nikartom/StreamNumDeck",
         "license": "https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md",
-        "author": {
-          "@type": "Person",
-          "name": "nikartom",
-          "url": "https://github.com/nikartom"
-        },
+        "author": {"@type": "Person", "name": "nikartom", "url": "https://github.com/nikartom"},
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -92,251 +88,235 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="На главную StreamNumDeck">
-      <span class="brand-mark" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </span>
+    <a class="brand" href="#top" aria-label="Главная StreamNumDeck">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
       <span>StreamNumDeck</span>
     </a>
-
     <nav class="site-nav" aria-label="Основная навигация">
+      <a href="#try">Демо</a>
       <a href="#features">Возможности</a>
-      <a href="#automation">Автоматизация</a>
+      <a href="#how">Как это работает</a>
       <a href="#faq">Вопросы</a>
     </nav>
-
     <div class="header-tools">
-      <a class="language-link" href="../" lang="en" hreflang="en">EN</a>
-      <a class="header-download" href="https://github.com/nikartom/StreamNumDeck/releases/latest">
-        Скачать <span aria-hidden="true">↗</span>
-      </a>
+      <a class="language-link" href="../" lang="en" hreflang="en" aria-label="Switch to English">EN</a>
+      <a class="header-download" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Скачать <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-copy">
-        <p class="live-label"><span></span> StreamNumDeck / панель управления для Windows</p>
-        <h1>Ваш numpad.<br><em>Ваш<br class="ru-desktop-break">стрим-дек.</em></h1>
-        <p class="hero-lead">
-          StreamNumDeck превращает цифровой блок клавиатуры в панель управления OBS, звуком, приложениями, макросами и целыми сценариями.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://github.com/nikartom/StreamNumDeck/releases/latest">
-            Скачать для Windows <span aria-hidden="true">→</span>
-          </a>
-          <a class="button button-secondary" href="https://github.com/nikartom/StreamNumDeck">
-            Открыть на GitHub
-          </a>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-intro">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Хватит покупать кнопки. Используйте свои.</p>
+          <h1 id="hero-title">Ваш нампад.<br><em>Ваш чит-код для стрима.</em></h1>
         </div>
-        <p class="hero-meta">Windows 10–11 <b>·</b> Установщик или portable <b>·</b> Без телеметрии</p>
+        <div class="hero-side">
+          <p>Никаких лишних коробочек на столе и паники с Alt+Tab. Нажмите клавишу — StreamNumDeck разберётся с OBS, звуком, программами, макросами и сценариями.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Скачать для Windows <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#try">Попробовать ниже <span aria-hidden="true">↘</span></a>
+          </div>
+          <ul class="hero-facts" aria-label="Кратко о программе">
+            <li>Бесплатно</li><li>Windows 10–11</li><li>Без телеметрии</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="hero-product" aria-label="Интерфейс приложения StreamNumDeck">
-        <div class="hero-counter" aria-hidden="true">
-          <strong>22 × 2</strong>
-          <span>клавиши / слоя</span>
+      <div class="demo-wrap" id="try">
+        <div class="demo-heading">
+          <div>
+            <p class="section-kicker">Играбельное демо · нампад уже в эфире</p>
+            <h2>Нажали.<br><em>Сразу увидели.</em></h2>
+          </div>
+          <p id="demo-help">Здесь настоящий кадр Freedoom, реальная фотография веб-камеры и те же действия, которые назначаются в программе. Попробуйте КАМ, МИК, ЗАПИСЬ, В ЭФИР или СЦЕНАРИЙ.</p>
         </div>
-        <div class="screenshot-shell">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="../assets/app-deck-filled-520.webp 520w, ../assets/app-deck-filled-820.webp 820w, ../assets/app-deck-filled-1038.webp 1038w"
-              sizes="(max-width: 560px) 78vw, 405px">
-            <img src="../assets/app-deck-filled.png" width="1038" height="1515" fetchpriority="high" decoding="async" alt="StreamNumDeck с полностью настроенным профилем управления стримом">
-          </picture>
+
+        <div class="control-rig">
+          <div class="broadcast" id="broadcast" data-scene="gameplay" aria-label="Демонстрация экрана трансляции" aria-describedby="demo-help">
+            <div class="broadcast-topbar">
+              <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span class="studio-label">ПРЕДПРОСМОТР ЭФИРА</span>
+              <span class="live-badge"><i></i><b id="live-label">ПРЕВЬЮ</b><time id="live-timer" datetime="PT0S">00:00</time></span>
+            </div>
+            <div class="stream-stage">
+              <div class="game-world">
+                <img class="game-frame" src="../assets/freedoom-gameplay.png" width="1680" height="1050" alt="Кадр игрового процесса свободного ретро-шутера Freedoom">
+                <span class="game-id" aria-hidden="true">FREEDOOM // PHASE 2</span>
+              </div>
+              <div class="starting-card scene-card">
+                <small>ДО НАЧАЛА ЭФИРА</small><strong>02:14</strong><span>берите напиток · скоро начнём</span>
+              </div>
+              <div class="brb-card scene-card">
+                <small>КОРОТКИЙ ПЕРЕРЫВ</small><strong>BRB</strong><span>вернусь раньше, чем вы соскучитесь</span>
+              </div>
+              <div class="chatting-title scene-card"><small>ОБЩАЕМСЯ</small><strong>Поговорим.</strong></div>
+              <div class="scene-chip"><span>СЦЕНА</span><strong id="scene-name">Игра</strong></div>
+              <div class="camera-card" id="camera-card">
+                <span class="camera-tag"><i></i> КАМ 01</span>
+                <img class="facecam-image" src="../assets/streamer-facecam.jpg" width="400" height="600" alt="">
+                <p>Камера скрыта</p>
+              </div>
+              <div class="chat-stack" aria-hidden="true">
+                <p><i></i><span><b>pixel_fox</b> красивый момент!</span></p>
+                <p><i></i><span><b>mira.exe</b> отличный стрим</span></p>
+              </div>
+              <div class="action-toast" id="action-toast" role="status" aria-live="polite">Готово — нажмите клавишу</div>
+              <div class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="mixer-bar">
+              <span class="control-pill mic-pill"><i class="mic-icon" aria-hidden="true"></i><b>МИК</b><small id="mic-state">ВКЛ</small></span>
+              <span class="level-meter" aria-label="Уровень микрофона"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="control-pill"><b>ЗВУК ПК</b><small id="desktop-state">−8 дБ</small></span>
+              <span class="record-pill" id="record-state"><i></i> ЗАПИСЬ</span>
+            </div>
+          </div>
+
+          <div class="deck-console">
+            <div class="deck-console-head">
+              <span><i></i> OBS ПОДКЛЮЧЁН</span>
+              <span>СЛОЙ <b id="layer-status">A</b></span>
+            </div>
+            <div class="nav-keys" aria-label="Клавиши навигационного блока">
+              <button class="deck-key scene-key" type="button" data-key="Insert" data-action="starting" data-label-en="Starting soon" data-label-ru="Заставка"><small>INS</small><strong>СТАРТ</strong></button>
+              <button class="deck-key scene-key" type="button" data-key="Home" data-action="gameplay" data-label-en="Gameplay" data-label-ru="Игра"><small>HOME</small><strong>ИГРА</strong></button>
+              <button class="deck-key scene-key" type="button" data-key="PageUp" data-action="chatting" data-label-en="Just chatting" data-label-ru="Общение"><small>PGUP</small><strong>ЧАТ</strong></button>
+              <button class="deck-key" type="button" data-key="Delete" data-action="brb" data-label-en="BRB scene" data-label-ru="Скоро вернусь"><small>DEL</small><strong>BRB</strong></button>
+              <button class="deck-key accent-key" type="button" data-key="End" data-action="webcam" data-label-en="Toggle webcam" data-label-ru="Переключить камеру"><small>END</small><strong>КАМ</strong></button>
+              <button class="deck-key" type="button" data-key="PageDown" data-action="replay" data-label-en="Replay saved" data-label-ru="Повтор сохранён"><small>PGDN</small><strong>ПОВТОР</strong></button>
+            </div>
+            <div class="numpad" aria-label="Интерактивный цифровой блок">
+              <button class="deck-key layer-key" type="button" data-key="NumLock" data-action="layer" aria-pressed="false"><small>NUM</small><strong>СЛОЙ A</strong></button>
+              <button class="deck-key" type="button" data-key="Divide" data-action-a="previous" data-action-b="volume-down" data-label-en="Previous track" data-label-ru="Прошлый трек"><small>/</small><strong>НАЗАД</strong></button>
+              <button class="deck-key" type="button" data-key="Multiply" data-action-a="play" data-action-b="volume-up" data-label-en="Play / pause" data-label-ru="Пуск / пауза"><small>×</small><strong>ПУСК</strong></button>
+              <button class="deck-key" type="button" data-key="Subtract" data-action-a="volume-down" data-action-b="master-mute" data-label-en="Volume down" data-label-ru="Тише"><small>−</small><strong>ЗВУК −</strong></button>
+              <button class="deck-key mic-key" type="button" data-key="Numpad7" data-action-a="mic" data-action-b="launch-obs" data-label-en="Toggle microphone" data-label-ru="Переключить микрофон"><small>7</small><strong>МИК</strong></button>
+              <button class="deck-key" type="button" data-key="Numpad8" data-action-a="desktop" data-action-b="launch-discord" data-label-en="Desktop audio" data-label-ru="Звук компьютера"><small>8</small><strong>ЗВУК ПК</strong></button>
+              <button class="deck-key" type="button" data-key="Numpad9" data-action-a="sound" data-action-b="dashboard" data-label-en="Sound effect" data-label-ru="Звуковой эффект"><small>9</small><strong>ЭФФЕКТ</strong></button>
+              <button class="deck-key tall-key plus-key" type="button" data-key="Add" data-action-a="volume-up" data-action-b="next" data-label-en="Volume up" data-label-ru="Громче"><small>+</small><strong>ЗВУК +</strong></button>
+              <button class="deck-key" type="button" data-key="Numpad4" data-action-a="gameplay" data-action-b="website" data-label-en="Switch scene" data-label-ru="Сменить сцену"><small>4</small><strong>СЦЕНА</strong></button>
+              <button class="deck-key" type="button" data-key="Numpad5" data-action-a="webcam" data-action-b="file" data-label-en="Toggle source" data-label-ru="Источник"><small>5</small><strong>ИСТОЧНИК</strong></button>
+              <button class="deck-key" type="button" data-key="Numpad6" data-action-a="mic" data-action-b="app" data-label-en="Mute OBS input" data-label-ru="Вход OBS"><small>6</small><strong>МИК OBS</strong></button>
+              <button class="deck-key record-key" type="button" data-key="Numpad1" data-action-a="record" data-action-b="work" data-label-en="Toggle recording" data-label-ru="Переключить запись"><small>1</small><strong>ЗАПИСЬ</strong></button>
+              <button class="deck-key routine-key" type="button" data-key="Numpad2" data-action-a="routine" data-action-b="profile" data-label-en="Run stream routine" data-label-ru="Запустить сценарий"><small>2</small><strong>СЦЕНАРИЙ</strong></button>
+              <button class="deck-key" type="button" data-key="Numpad3" data-action-a="macro" data-action-b="edit" data-label-en="Keyboard macro" data-label-ru="Макрос"><small>3</small><strong>МАКРОС</strong></button>
+              <button class="deck-key tall-key enter-key live-key" type="button" data-key="NumpadEnter" data-action-a="live" data-action-b="switch-profile" data-label-en="Toggle stream" data-label-ru="Переключить эфир"><small>ENTER</small><strong>В ЭФИР</strong></button>
+              <button class="deck-key wide-key" type="button" data-key="Numpad0" data-action-a="brb" data-action-b="home" data-label-en="BRB scene" data-label-ru="Сцена «Вернусь»"><small>0</small><strong>ВЕРНУСЬ</strong></button>
+              <button class="deck-key" type="button" data-key="Decimal" data-action-a="master-mute" data-action-b="pause" data-label-en="Master mute" data-label-ru="Выключить звук"><small>.</small><strong>ТИШИНА</strong></button>
+            </div>
+            <p class="keyboard-hint"><span aria-hidden="true">⌨</span> Физический нампад здесь тоже работает</p>
+          </div>
         </div>
-        <div class="product-note note-obs"><span></span> OBS подключён</div>
-        <div class="product-note note-actions">До 44 действий</div>
+        <p class="demo-credit">Медиа в демо: <a href="https://freedoom.github.io/">проект Freedoom</a> · фото веб-камеры — <a href="https://www.pexels.com/photo/man-wearing-headset-while-playing-online-games-9072246/">Yan Krukau / Pexels</a> · иконки — <a href="https://lucide.dev/">Lucide</a></p>
       </div>
     </section>
 
-    <section class="ticker" aria-label="Основные возможности">
-      <div>
-        <span>OBS Studio</span><b>✦</b>
-        <span>Системный звук</span><b>✦</b>
-        <span>Клавиатурные макросы</span><b>✦</b>
-        <span>Многошаговые автоматизации</span><b>✦</b>
-        <span>22 языка интерфейса</span>
-      </div>
-    </section>
-
-    <section class="deck-section" aria-labelledby="deck-title">
-      <div class="section-heading section-heading-dark">
-        <p class="section-index">01 / Два слоя</p>
-        <h2 id="deck-title">Нажал клавишу.<br>Остался в эфире.</h2>
-        <p>NumLock переключает два независимых набора назначений. Игра или трансляция остаются на экране.</p>
-      </div>
-
-      <div class="deck-demo">
-        <div class="deck-status" aria-live="polite">
-          <span><i></i> Слой <strong id="layer-status">A</strong></span>
-          <span id="action-status">NumLock выключен</span>
-        </div>
-
-        <div class="navigation-keys" aria-label="Действия навигационных клавиш">
-          <button class="deck-key" data-key="Ins" data-a="Сцена «Заставка»" data-b="Открыть браузер" type="button"><small>Ins</small><strong>Заставка</strong></button>
-          <button class="deck-key" data-key="Home" data-a="Сцена «Игра»" data-b="Открыть Discord" type="button"><small>Home</small><strong>Игра</strong></button>
-          <button class="deck-key" data-key="PgUp" data-a="Сцена «Общение»" data-b="Панель стрима" type="button"><small>PgUp</small><strong>Общение</strong></button>
-          <button class="deck-key" data-key="Del" data-a="Остановить трансляцию" data-b="Открыть папку" type="button"><small>Del</small><strong>Стоп</strong></button>
-          <button class="deck-key" data-key="End" data-a="Переключить веб-камеру" data-b="Клавиатурный макрос" type="button"><small>End</small><strong>Камера</strong></button>
-          <button class="deck-key" data-key="PgDn" data-a="Сохранить повтор" data-b="Звуковой эффект" type="button"><small>PgDn</small><strong>Повтор</strong></button>
-        </div>
-
-        <div class="numpad" aria-label="Интерактивный цифровой блок">
-          <button class="deck-key layer-key" data-key="NumLock" type="button" aria-pressed="false"><small>Num</small><strong>Слой A</strong></button>
-          <button class="deck-key" data-key="/" data-a="Предыдущий трек" data-b="Уменьшить громкость" type="button"><small>/</small><strong>Назад</strong></button>
-          <button class="deck-key" data-key="*" data-a="Воспроизведение или пауза" data-b="Увеличить громкость" type="button"><small>*</small><strong>Пуск</strong></button>
-          <button class="deck-key" data-key="-" data-a="Уменьшить громкость" data-b="Отключить звук" type="button"><small>−</small><strong>Звук −</strong></button>
-          <button class="deck-key" data-key="7" data-a="Выключить микрофон" data-b="Запустить OBS" type="button"><small>7</small><strong>Микрофон</strong></button>
-          <button class="deck-key" data-key="8" data-a="Звук компьютера" data-b="Запустить Discord" type="button"><small>8</small><strong>Звук ПК</strong></button>
-          <button class="deck-key" data-key="9" data-a="Включить звуковой эффект" data-b="Панель стрима" type="button"><small>9</small><strong>Эффект</strong></button>
-          <button class="deck-key key-tall key-add" data-key="+" data-a="Увеличить громкость" data-b="Следующий трек" type="button"><small>+</small><strong>Звук +</strong></button>
-          <button class="deck-key" data-key="4" data-a="Переключить сцену" data-b="Открыть сайт" type="button"><small>4</small><strong>Сцена</strong></button>
-          <button class="deck-key" data-key="5" data-a="Показать или скрыть источник" data-b="Открыть файл" type="button"><small>5</small><strong>Источник</strong></button>
-          <button class="deck-key" data-key="6" data-a="Выключить вход OBS" data-b="Открыть приложение" type="button"><small>6</small><strong>Микс OBS</strong></button>
-          <button class="deck-key" data-key="1" data-a="Начать запись" data-b="Рабочий профиль" type="button"><small>1</small><strong>Запись</strong></button>
-          <button class="deck-key" data-key="2" data-a="Автоматизация подготовки стрима" data-b="Игровой профиль" type="button"><small>2</small><strong>Сценарий</strong></button>
-          <button class="deck-key" data-key="3" data-a="Клавиатурный макрос" data-b="Изменить профиль" type="button"><small>3</small><strong>Макрос</strong></button>
-          <button class="deck-key key-tall key-enter" data-key="Enter" data-a="Автоматизация запуска стрима" data-b="Переключить профиль" type="button"><small>Enter</small><strong>В эфир</strong></button>
-          <button class="deck-key key-wide" data-key="0" data-a="Сцена «Скоро вернусь»" data-b="Главная сцена" type="button"><small>0</small><strong>Вернусь</strong></button>
-          <button class="deck-key" data-key="." data-a="Отключить весь звук" data-b="Приостановить перехват" type="button"><small>.</small><strong>Тишина</strong></button>
-        </div>
-      </div>
+    <section class="trust-strip" aria-label="Возможности продукта">
+      <span>OBS Studio</span><i>✦</i><span>Звук Windows</span><i>✦</i><span>Макросы</span><i>✦</i><span>Сценарии</span><i>✦</i><span>22 языка</span>
     </section>
 
     <section class="features" id="features" aria-labelledby="features-title">
-      <div class="section-heading">
-        <p class="section-index">02 / Возможности</p>
-        <h2 id="features-title">Одно приложение.<br>Меньше отвлечений.</h2>
+      <div class="section-header">
+        <p class="section-kicker">Весь стримерский loadout</p>
+        <h2 id="features-title">Одна рука в игре.<br><em>Вторая управляет всем.</em></h2>
+        <p>Руки остаются на клавиатуре, а внимание — там, где оно нужно: в игре, разговоре и общении со зрителями.</p>
       </div>
-
-      <div class="feature-grid">
-        <article class="feature feature-wide">
-          <span class="feature-number">01</span>
-          <p class="feature-tag">OBS Studio</p>
-          <h3>Управляйте эфиром без Alt+Tab.</h3>
-          <p>Переключайте сцены и источники, управляйте трансляцией и записью, сохраняйте буфер повтора.</p>
-          <div class="scene-strip" aria-hidden="true"><span>ЗАСТАВКА</span><span class="active">ИГРА</span><span>ОБЩЕНИЕ</span></div>
+      <div class="bento-grid">
+        <article class="feature-card card-obs">
+          <p class="card-label">01 · УПРАВЛЕНИЕ OBS</p>
+          <h3>Режиссируйте весь эфир.</h3>
+          <p>Меняйте сцены, источники и входы, запускайте запись и трансляцию, сохраняйте повторы — без поисков по окнам OBS.</p>
+          <div class="scene-tabs" aria-hidden="true"><span>ЗАСТАВКА</span><span class="active">ИГРА</span><span>ОБЩЕНИЕ</span></div>
         </article>
-
-        <article class="feature">
-          <span class="feature-number">02</span>
-          <p class="feature-tag">Звук</p>
-          <h3>Контролируйте каждый сигнал.</h3>
-          <p>Выключайте микрофон и меняйте громкость Windows или отдельного приложения.</p>
-          <div class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <article class="feature-card card-audio">
+          <p class="card-label">02 · ЗВУК</p>
+          <h3>Каждый сигнал<br>точно вовремя.</h3>
+          <p>Выключайте микрофон, управляйте общим звуком и громкостью отдельных программ.</p>
+          <div class="card-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </article>
-
-        <article class="feature feature-accent">
-          <span class="feature-number">03</span>
-          <p class="feature-tag">Без нового устройства</p>
-          <h3>Используйте клавиатуру на своём столе.</h3>
-          <p>Цифровой блок и шесть навигационных клавиш становятся программируемой панелью управления.</p>
-          <strong class="big-stat">44</strong><small>действия в профиле</small>
+        <article class="feature-card card-layers">
+          <p class="card-label">03 · ДВА СЛОЯ</p>
+          <strong>22 × 2</strong>
+          <h3>До 44 действий в профиле.</h3>
+          <p>NumLock мгновенно превращает те же клавиши во второй независимый пульт.</p>
         </article>
-
-        <article class="feature">
-          <span class="feature-number">04</span>
-          <p class="feature-tag">Система</p>
-          <h3>Запускайте что угодно.</h3>
-          <p>Открывайте программу, файл, папку или сайт и выполняйте последовательности клавиш.</p>
+        <article class="feature-card card-anything">
+          <p class="card-label">04 · НЕ ТОЛЬКО СТРИМЫ</p>
+          <h3>Открывайте что угодно.<br>Запускайте что угодно.</h3>
+          <p>Программы, файлы, папки и сайты. Горячие клавиши и макросы. Соберите рабочий процесс вокруг своих инструментов.</p>
+          <div class="launch-row" aria-hidden="true"><span>ПРОГРАММА</span><b>→</b><span>МАКРОС</span><b>→</b><span>ГОТОВО</span></div>
         </article>
-
-        <article class="feature feature-wide feature-privacy">
-          <span class="feature-number">05</span>
-          <p class="feature-tag">Локальная работа</p>
-          <h3>Ваши настройки остаются вашими.</h3>
-          <p>Без телеметрии и рекламы. Профили, настройки, иконки и журналы остаются на компьютере.</p>
-          <div class="privacy-stamp" aria-hidden="true">БЕЗ<br>ТЕЛЕМЕТРИИ</div>
+        <article class="feature-card card-local">
+          <p class="card-label">05 · ВСЁ ЛОКАЛЬНО</p>
+          <h3>Ваши настройки<br>остаются вашими.</h3>
+          <p>Без аккаунта, рекламы и телеметрии. Профили, настройки, значки и журналы хранятся на вашем компьютере.</p>
+          <div class="privacy-orbit" aria-hidden="true"><span>100%</span><small>ЛОКАЛЬНО</small></div>
         </article>
       </div>
     </section>
 
-    <section class="automation" id="automation" aria-labelledby="automation-title">
-      <div class="automation-copy">
-        <p class="section-index">03 / Автоматизация</p>
-        <h2 id="automation-title">Одна клавиша.<br>Целый сценарий.</h2>
-        <p>Объединяйте OBS, звук, системные действия, макросы и настраиваемые паузы в последовательность под свой рабочий процесс.</p>
-        <div class="routine-line" aria-label="Пример автоматизации">
-          <span>МИКРОФОН</span><b>→</b><span>КАМЕРА</span><b>→</b><span>3 СЕК</span><b>→</b><span>СЦЕНА</span>
-        </div>
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="how-copy">
+        <p class="section-kicker">Одна клавиша умеет многое</p>
+        <h2 id="how-title">Соберите сценарий.<br><em>Нажмите один раз.</em></h2>
+        <p>Объединяйте действия OBS, звук, системные команды, клавиатурные макросы и настраиваемые паузы в одну надёжную последовательность.</p>
+        <a class="text-link text-link-light" href="https://github.com/nikartom/StreamNumDeck#readme">Все доступные действия <span aria-hidden="true">↗</span></a>
       </div>
-
-      <div class="automation-panel" aria-label="Пример редактора автоматизации">
-        <div class="panel-header"><span>Подготовка стрима</span><small>АВТОМАТИЗАЦИЯ / 04 ШАГА</small></div>
-        <ol class="automation-steps">
-          <li><span>01</span><div><strong>Микрофон</strong><small>Переключить микрофон по умолчанию</small></div><b>МИК</b></li>
-          <li><span>02</span><div><strong>Переключить источник</strong><small>Веб-камера</small></div><b>OBS</b></li>
-          <li class="pause-step"><span>03</span><div><strong>Пауза</strong><small>Подождать перед следующим шагом</small></div><b>3 СЕК</b></li>
-          <li><span>04</span><div><strong>Переключить сцену</strong><small>Игра</small></div><b>OBS</b></li>
+      <div class="routine-panel" aria-label="Пример автоматизации запуска трансляции">
+        <div class="routine-head"><span>СЦЕНАРИЙ «В ЭФИР»</span><small>NUM 2 · 4 ШАГА</small></div>
+        <ol>
+          <li><span>01</span><i class="routine-icon"><img src="../assets/icons/mic.svg" alt=""></i><div><strong>Включить микрофон</strong><small>Устройство ввода по умолчанию</small></div><b>ГОТОВО</b></li>
+          <li><span>02</span><i class="routine-icon"><img src="../assets/icons/video.svg" alt=""></i><div><strong>Показать веб-камеру</strong><small>Источник OBS: Камера</small></div><b>ГОТОВО</b></li>
+          <li class="active"><span>03</span><i class="routine-icon"><img src="../assets/icons/workflow.svg" alt=""></i><div><strong>Подождать 3 секунды</strong><small>Пауза перед выходом в эфир</small></div><b>ВЫПОЛНЯЕТСЯ</b></li>
+          <li><span>04</span><i class="routine-icon"><img src="../assets/icons/radio-tower.svg" alt=""></i><div><strong>Начать трансляцию</strong><small>OBS Studio</small></div><b>ДАЛЬШЕ</b></li>
         </ol>
-        <div class="panel-footer"><span>NUM 2</span><button type="button">СОХРАНИТЬ</button></div>
       </div>
     </section>
 
-    <section class="languages" aria-labelledby="languages-title">
-      <div>
-        <p class="section-index">04 / По всему миру</p>
-        <h2 id="languages-title">Говорит на вашем языке.</h2>
+    <section class="setup" aria-labelledby="setup-title">
+      <div class="section-header compact-header">
+        <p class="section-kicker">От нуля до первого действия</p>
+        <h2 id="setup-title">Настройка за пару минут.</h2>
       </div>
-      <div class="language-count"><strong>22</strong><span>языка<br>интерфейса</span></div>
-      <p>Английский, русский, немецкий, французский, испанский, португальский, итальянский, польский, украинский, турецкий, нидерландский, шведский, чешский, румынский, китайский, японский, корейский, хинди, арабский, индонезийский, вьетнамский и тайский.</p>
+      <ol class="setup-steps">
+        <li><span>01</span><div><strong>Скачайте</strong><p>Выберите установщик или портативный ZIP для Windows.</p></div></li>
+        <li><span>02</span><div><strong>Назначьте клавишу</strong><p>Выберите кнопку нампада и действие для неё.</p></div></li>
+        <li><span>03</span><div><strong>Не отвлекайтесь</strong><p>Нажимайте её из любой программы — переключать окна не нужно.</p></div></li>
+      </ol>
     </section>
 
     <section class="faq" id="faq" aria-labelledby="faq-title">
-      <div class="section-heading">
-        <p class="section-index">05 / Полезно знать</p>
-        <h2 id="faq-title">Ответы<br>на вопросы.</h2>
+      <div>
+        <p class="section-kicker">Полезно знать</p>
+        <h2 id="faq-title">Вопросы<br><em>и ответы.</em></h2>
       </div>
-
       <div class="faq-list">
-        <details open>
-          <summary>Что нужно для запуска StreamNumDeck?<span>+</span></summary>
-          <p>Windows 10 версии 1903 или новее либо Windows 11. Цифровой блок и шесть навигационных клавиш можно перехватывать независимо.</p>
-        </details>
-        <details>
-          <summary>Работает ли приложение с современной OBS Studio?<span>+</span></summary>
-          <p>Да. StreamNumDeck использует интерфейс OBS WebSocket 5.x, встроенный в актуальные версии OBS Studio.</p>
-        </details>
-        <details>
-          <summary>Обязательно ли устанавливать приложение?<span>+</span></summary>
-          <p>Нет. Можно выбрать обычный установщик или скачать portable ZIP, распаковать его и запустить StreamNumDeck.exe.</p>
-        </details>
-        <details>
-          <summary>Почему SmartScreen может показать предупреждение?<span>+</span></summary>
-          <p>Установщик пока не имеет цифровой подписи. Скачивайте его только из официального репозитория GitHub и при необходимости сверяйте SHA-256.</p>
-        </details>
+        <details open><summary>Что нужно для работы StreamNumDeck?<span>+</span></summary><p>Windows 10 версии 1903 или новее либо Windows 11. Рекомендуется цифровой блок клавиатуры; блок из шести навигационных клавиш можно перехватывать отдельно.</p></details>
+        <details><summary>Программа работает с актуальной OBS Studio?<span>+</span></summary><p>Да. StreamNumDeck использует интерфейс OBS WebSocket 5.x, встроенный в актуальные версии OBS Studio.</p></details>
+        <details><summary>Обязательно устанавливать программу?<span>+</span></summary><p>Нет. Можно выбрать обычный установщик для текущего пользователя или скачать портативный ZIP, распаковать его и запустить StreamNumDeck.exe.</p></details>
+        <details><summary>Сколько это стоит?<span>+</span></summary><p>Программа бесплатна для личного и другого разрешённого некоммерческого использования. Для коммерческого использования требуется отдельное разрешение.</p></details>
+        <details><summary>Почему SmartScreen может показать предупреждение?<span>+</span></summary><p>Установщик пока не подписан цифровой подписью. Скачивайте его только из официального репозитория GitHub и при необходимости проверяйте опубликованный SHA-256.</p></details>
       </div>
     </section>
 
     <section class="final-cta">
-      <p class="live-label"><span></span> Всё готово</p>
-      <h2>Превратите свободные клавиши<br>в полезные.</h2>
-      <a class="button button-light" href="https://github.com/nikartom/StreamNumDeck/releases/latest">
-        Скачать StreamNumDeck <span aria-hidden="true">→</span>
-      </a>
-      <p>Бесплатно для личного и другого разрешённого некоммерческого использования.</p>
+      <p class="section-kicker">Свободные клавиши уже готовы</p>
+      <h2>Заставьте нампад<br><em>делать больше.</em></h2>
+      <div class="final-actions">
+        <a class="button button-light" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Скачать StreamNumDeck <span aria-hidden="true">↓</span></a>
+        <a class="text-link text-link-light" href="https://github.com/nikartom/StreamNumDeck">Исходный код на GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="final-note">Windows 10–11 · Установщик или портативная версия · 22 языка · Без телеметрии</p>
     </section>
   </main>
 
   <footer>
-    <a class="brand brand-footer" href="#top">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-      <span>StreamNumDeck</span>
-    </a>
-    <p>Автор nikartom · © 2026</p>
-    <div>
-      <a href="https://github.com/nikartom/StreamNumDeck">GitHub</a>
-      <a href="../" lang="en" hreflang="en">English</a>
-      <a href="https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md">Лицензия</a>
-      <a href="https://www.donationalerts.com/r/kventinburatino">Поддержать</a>
-    </div>
+    <a class="brand brand-footer" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>StreamNumDeck</span></a>
+    <p>Сделано nikartom · © 2026</p>
+    <nav aria-label="Навигация в подвале"><a href="https://github.com/nikartom/StreamNumDeck">GitHub</a><a href="../" lang="en" hreflang="en">English</a><a href="https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md">Лицензия</a><a href="../THIRD_PARTY_NOTICES.md">Авторы медиа</a><a href="https://www.donationalerts.com/r/kventinburatino">Поддержать</a></nav>
   </footer>
-
-  <script src="../script-ru.js"></script>
 </body>
 </html>
