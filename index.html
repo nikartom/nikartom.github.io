@@ -102,10 +102,17 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="header-tools">
-      <a class="language-link" href="./ru/" lang="ru" hreflang="ru" aria-label="Переключить на русский">RU</a>
+      <a class="language-link" href="./ru/" lang="ru" hreflang="ru" aria-label="Переключить на русский" data-language-select="ru">RU</a>
       <a class="header-download" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Get the app <span aria-hidden="true">↗</span></a>
     </div>
   </header>
+
+  <aside class="language-suggestion" data-language-suggestion hidden aria-label="Предложение выбрать язык">
+    <span class="language-suggestion-badge" aria-hidden="true">RU</span>
+    <p><strong>Предпочитаете русский?</strong><span>Откройте русскую версию сайта.</span></p>
+    <a href="./ru/" lang="ru" hreflang="ru" data-language-select="ru">Открыть на русском <span aria-hidden="true">→</span></a>
+    <button type="button" data-language-dismiss aria-label="Закрыть предложение">×</button>
+  </aside>
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
@@ -316,7 +323,7 @@
   <footer>
     <a class="brand brand-footer" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>StreamNumDeck</span></a>
     <p>Made by nikartom · © 2026</p>
-    <nav aria-label="Footer navigation"><a href="https://github.com/nikartom/StreamNumDeck">GitHub</a><a href="./ru/" lang="ru" hreflang="ru">Русский</a><a href="https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md">License</a><a href="./THIRD_PARTY_NOTICES.md">Credits</a><a href="https://www.donationalerts.com/r/kventinburatino">Support</a></nav>
+    <nav aria-label="Footer navigation"><a href="https://github.com/nikartom/StreamNumDeck">GitHub</a><a href="./ru/" lang="ru" hreflang="ru" data-language-select="ru">Русский</a><a href="https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md">License</a><a href="./THIRD_PARTY_NOTICES.md">Credits</a><a href="https://www.donationalerts.com/r/kventinburatino">Support</a></nav>
   </footer>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">

@@ -13,6 +13,50 @@ const layerButton = document.querySelector('.layer-key');
 const deckKeys = Array.from(document.querySelectorAll('.deck-key'));
 const iconBase = isRussian ? '../assets/icons/' : './assets/icons/';
 
+const languagePreferenceKey = 'streamnumdeck-language-choice';
+const languageSuggestion = document.querySelector('[data-language-suggestion]');
+
+function rememberLanguage(selectedLanguage) {
+  try {
+    window.localStorage.setItem(languagePreferenceKey, selectedLanguage);
+  } catch (_) {
+    // The language links still work when storage is unavailable.
+  }
+}
+
+function getRememberedLanguage() {
+  try {
+    return window.localStorage.getItem(languagePreferenceKey);
+  } catch (_) {
+    return null;
+  }
+}
+
+document.querySelectorAll('[data-language-select]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    rememberLanguage(link.dataset.languageSelect);
+  });
+});
+
+if (languageSuggestion && !getRememberedLanguage()) {
+  const preferredLanguage = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+  const suggestedLanguage = preferredLanguage.startsWith('ru') ? 'ru' : 'en';
+
+  if (preferredLanguage && suggestedLanguage !== language) {
+    languageSuggestion.hidden = false;
+    window.requestAnimationFrame(function () {
+      languageSuggestion.classList.add('is-visible');
+    });
+
+    const dismissLanguageSuggestion = languageSuggestion.querySelector('[data-language-dismiss]');
+    dismissLanguageSuggestion.addEventListener('click', function () {
+      rememberLanguage(language);
+      languageSuggestion.classList.remove('is-visible');
+      window.setTimeout(function () { languageSuggestion.hidden = true; }, 180);
+    });
+  }
+}
+
 const actionIcons = {
   layer: 'layers-2',
   starting: 'play',
