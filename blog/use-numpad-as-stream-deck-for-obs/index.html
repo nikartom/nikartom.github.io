@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Use Your Numpad as a Stream Deck for OBS on Windows</title>
+  <meta name="description" content="Learn three ways to use a keyboard numpad to control OBS scenes, microphone mute, recording, and replay buffer on Windows — without buying a Stream Deck.">
+  <meta name="author" content="nikartom">
+  <meta name="theme-color" content="#090b0d">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://streamnumdeck.com/blog/use-numpad-as-stream-deck-for-obs/">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="StreamNumDeck">
+  <meta property="og:title" content="How to Use Your Numpad as a Stream Deck for OBS on Windows">
+  <meta property="og:description" content="A practical, no-code guide to turning spare numpad keys into physical OBS controls.">
+  <meta property="og:url" content="https://streamnumdeck.com/blog/use-numpad-as-stream-deck-for-obs/">
+  <meta property="og:image" content="https://streamnumdeck.com/assets/app-deck-filled.png">
+  <meta property="article:published_time" content="2026-07-18">
+  <meta property="article:author" content="nikartom">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to Use Your Numpad as a Stream Deck for OBS on Windows",
+        "description": "Three practical ways to control OBS Studio from a Windows numpad without buying another device.",
+        "image": "https://streamnumdeck.com/assets/app-deck-filled.png",
+        "datePublished": "2026-07-18",
+        "dateModified": "2026-07-18",
+        "author": {"@type": "Person", "name": "nikartom"},
+        "publisher": {"@type": "Organization", "name": "StreamNumDeck", "url": "https://streamnumdeck.com/"},
+        "mainEntityOfPage": "https://streamnumdeck.com/blog/use-numpad-as-stream-deck-for-obs/",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://streamnumdeck.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://streamnumdeck.com/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Use Your Numpad as a Stream Deck for OBS"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page article-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header blog-header">
+    <a class="brand" href="../../" aria-label="StreamNumDeck home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span>StreamNumDeck</span>
+    </a>
+    <nav class="site-nav" aria-label="Blog navigation">
+      <a href="../../">Product</a>
+      <a href="../" aria-current="page">Blog</a>
+      <a href="https://github.com/nikartom/StreamNumDeck">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <a class="header-download" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Get the app <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="article-shell">
+      <header class="article-header">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../">Blog</a><span>/</span><span>Guide</span></nav>
+        <p class="section-kicker">OBS control guide · Windows</p>
+        <h1>How to Use Your Numpad as a Stream Deck for OBS on Windows</h1>
+        <p class="article-dek">You can turn the unused numeric keypad on a full-size keyboard into physical controls for scenes, microphone mute, recording, and replay buffer. Here are three ways to do it — and the trade-offs of each.</p>
+        <p class="post-meta"><span>By nikartom</span><time datetime="2026-07-18">July 18, 2026</time><span>9 min read</span></p>
+      </header>
+
+      <figure class="article-hero-media">
+        <picture>
+          <source srcset="../../assets/app-deck-filled-820.webp" type="image/webp">
+          <img src="../../assets/app-deck-filled.png" width="1038" height="1515" alt="StreamNumDeck configured with OBS, audio, and streaming actions on numpad keys">
+        </picture>
+        <figcaption>A regular numpad can provide physical streaming controls without adding another device to the desk.</figcaption>
+      </figure>
+
+      <div class="article-layout">
+        <aside class="article-toc" aria-label="On this page">
+          <strong>On this page</strong>
+          <a href="#short-answer">The short answer</a>
+          <a href="#three-methods">Three methods</a>
+          <a href="#setup">Step-by-step setup</a>
+          <a href="#num-lock">Using two layers</a>
+          <a href="#troubleshooting">Troubleshooting</a>
+          <a href="#choose">Which method to choose</a>
+        </aside>
+
+        <div class="article-body">
+          <p>I started looking for a better way to control OBS after realizing that the difficult part was not setting up a stream. It was operating the stream while a game had focus.</p>
+
+          <p>Actions such as changing scenes, muting the microphone, or saving a replay are easy inside OBS. During gameplay, however, opening OBS or remembering another combination of keys is distracting. A physical button that performs one clear action is much easier to use by touch.</p>
+
+          <h2 id="short-answer">The short answer: yes, a numpad can control OBS</h2>
+
+          <p>OBS Studio can react to keyboard shortcuts even when its window is not active. That means numpad keys can be assigned to streaming actions. The best method depends on how many controls you need and whether the keys must remain available to other applications.</p>
+
+          <div class="article-callout">
+            <strong>Good first controls</strong>
+            <p>Start with three low-risk actions: switch to a gameplay scene, mute or unmute the microphone, and save the replay buffer. Add start/stop streaming only after the layout feels familiar.</p>
+          </div>
+
+          <h2 id="three-methods">Three ways to turn a numpad into an OBS controller</h2>
+
+          <h3>Method 1: assign numpad keys directly in OBS</h3>
+
+          <p>This is the simplest option and requires no additional software.</p>
+
+          <ol>
+            <li>Open <strong>OBS Studio → Settings → Hotkeys</strong>.</li>
+            <li>Find the scene, source, recording, or replay action you want.</li>
+            <li>Click its shortcut field and press a numpad key.</li>
+            <li>Apply the settings and test the shortcut while another window is active.</li>
+          </ol>
+
+          <p>The official <a href="https://obsproject.com/kb/keyboard-shortcuts">OBS keyboard shortcut guide</a> covers the shortcuts used inside the main interface. The Hotkeys page in Settings also exposes actions belonging to your own scenes and sources.</p>
+
+          <p><strong>Advantages:</strong> built into OBS, quick to configure, and sufficient for a small number of actions.</p>
+
+          <p><strong>Limitations:</strong> shortcuts are tied to OBS, Num Lock can change the meaning of numpad keys, and the same key may still be needed by a game or another application. Labels and profiles also have to be remembered rather than displayed.</p>
+
+          <h3>Method 2: use a general key-remapping or macro tool</h3>
+
+          <p>A remapping tool can translate a numpad key into an uncommon shortcut, which OBS then receives as a hotkey. This is useful when a game and OBS compete for the same physical key.</p>
+
+          <p>It is also the most flexible DIY route. A separate USB numpad can sometimes be treated independently from the main keyboard, depending on the tool and input method.</p>
+
+          <p>The cost is additional setup. You have to maintain both the remapping configuration and the OBS hotkeys. More advanced sequences may require scripts, and it is easy to forget which physical key produces which virtual shortcut.</p>
+
+          <h3>Method 3: use a numpad control application</h3>
+
+          <p>A dedicated controller sits between the physical keyboard and OBS. Instead of translating every key into another shortcut, it can connect to OBS through WebSocket and request a specific action by name.</p>
+
+          <p>This makes it possible to select a scene or source from a list, display assignments on screen, and combine OBS controls with Windows audio or other local actions.</p>
+
+          <p>The rest of this guide uses <a href="https://streamnumdeck.com/">StreamNumDeck</a>, the Windows application I built for this workflow. It is not an official OBS product. The same general setup applies to other controllers that use OBS WebSocket.</p>
+
+          <h2 id="setup">Step-by-step: connect a numpad controller to OBS</h2>
+
+          <h3>1. Check OBS WebSocket</h3>
+
+          <p>Current OBS Studio releases include obs-websocket. In OBS, open <strong>Tools → WebSocket Server Settings</strong>, enable the server, and keep authentication enabled.</p>
+
+          <p>The default port for obs-websocket 5.x is <code>4455</code>. Copy the generated password rather than replacing it with something easy to guess. The <a href="https://github.com/obsproject/obs-websocket">official obs-websocket documentation</a> also recommends password protection.</p>
+
+          <h3>2. Enter the connection details</h3>
+
+          <p>Open StreamNumDeck settings and enter:</p>
+
+          <ul>
+            <li><strong>Address:</strong> <code>127.0.0.1</code> when OBS is running on the same computer.</li>
+            <li><strong>Port:</strong> <code>4455</code>, unless you changed it in OBS.</li>
+            <li><strong>Password:</strong> the password shown in OBS WebSocket settings.</li>
+          </ul>
+
+          <figure class="article-figure article-figure-wide">
+            <img src="../../assets/blog/numpad-stream-deck-obs/obs-settings.png" width="660" height="760" loading="lazy" alt="StreamNumDeck settings showing numpad capture and OBS WebSocket address, port, and password fields">
+            <figcaption>The controller can intercept the numpad and navigation block separately. OBS remains protected by its WebSocket password.</figcaption>
+          </figure>
+
+          <p>Use <strong>Test connection</strong> before saving. A connection test should only verify access and load available scenes and sources; it should not start a stream or recording.</p>
+
+          <h3>3. Assign one action to one key</h3>
+
+          <p>Choose a physical key in the on-screen numpad. For the first test, select <strong>OBS Studio → Switch scene</strong> and choose an existing gameplay scene.</p>
+
+          <figure class="article-figure article-figure-wide">
+            <img src="../../assets/blog/numpad-stream-deck-obs/assign-obs-action.png" width="800" height="912" loading="lazy" alt="StreamNumDeck key editor with OBS Studio selected and actions including switch scene, source visibility, microphone mute, recording, streaming, and replay buffer">
+            <figcaption>Assigning a named OBS action avoids maintaining a second list of virtual keyboard shortcuts.</figcaption>
+          </figure>
+
+          <p>Keep the first layout simple. A practical starting row might be:</p>
+
+          <ul>
+            <li><strong>Numpad 1:</strong> gameplay scene</li>
+            <li><strong>Numpad 2:</strong> intermission scene</li>
+            <li><strong>Numpad 3:</strong> full camera scene</li>
+            <li><strong>Numpad 0:</strong> microphone mute</li>
+            <li><strong>Numpad Decimal:</strong> save replay buffer</li>
+          </ul>
+
+          <p>Test every assignment with OBS running and the game window focused. Do this before a live broadcast.</p>
+
+          <h2 id="num-lock">Use Num Lock as a second layer</h2>
+
+          <p>A single numpad has enough keys for a basic stream. Num Lock can double the available assignments by selecting between two independent layouts.</p>
+
+          <p>For example:</p>
+
+          <div class="layer-example" aria-label="Example Num Lock layers">
+            <div><span>Num Lock on</span><strong>Numpad 1</strong><p>Switch to gameplay</p></div>
+            <div><span>Num Lock off</span><strong>Numpad 1</strong><p>Mute the microphone</p></div>
+          </div>
+
+          <p>StreamNumDeck combines 22 physical controls — the numpad plus six navigation keys — with these two layers, allowing up to 44 assignments in each profile.</p>
+
+          <p>Do not fill all 44 positions immediately. A smaller layout is easier to remember, and unused keys reduce accidental actions.</p>
+
+          <h2 id="troubleshooting">Common problems</h2>
+
+          <h3>The numpad types numbers instead of triggering an action</h3>
+
+          <p>Check that key capture is enabled and that the correct Num Lock layer is active. If you chose the direct OBS-hotkey method, confirm that the shortcut is still present in OBS Settings.</p>
+
+          <h3>OBS does not connect</h3>
+
+          <p>Verify that the WebSocket server is enabled, OBS is running, the port matches, and the password was copied correctly. Use <code>127.0.0.1</code> when both applications are on the same Windows computer.</p>
+
+          <h3>A game still reacts to the same key</h3>
+
+          <p>Direct OBS hotkeys do not necessarily reserve the physical key for OBS. Use a different key, remap it to an unused combination, or enable interception in a dedicated controller. Some games and anti-cheat systems handle keyboard input differently, so test with each game you stream.</p>
+
+          <h3>I need the numpad for normal work</h3>
+
+          <p>Pause capture when the stream is finished. StreamNumDeck reserves <code>Ctrl + Alt + F12</code> as an emergency capture toggle and can also pause capture from its tray menu.</p>
+
+          <h3>Windows SmartScreen shows an unknown publisher warning</h3>
+
+          <p>The current StreamNumDeck installer is not commercially code-signed. Download it only from the official website or GitHub repository, compare the published hash when available, or use the portable ZIP. Never disable Windows security globally just to run one application.</p>
+
+          <h2 id="choose">Which method should you choose?</h2>
+
+          <div class="article-table-wrap">
+            <table>
+              <thead><tr><th>What you need</th><th>Best starting point</th></tr></thead>
+              <tbody>
+                <tr><td>Two or three simple OBS actions</td><td>OBS hotkeys</td></tr>
+                <tr><td>A separate USB numpad or custom scripts</td><td>Key-remapping tool</td></tr>
+                <tr><td>Named scenes and sources, visible assignments, or multiple profiles</td><td>Dedicated numpad controller</td></tr>
+                <tr><td>A labeled hardware display with plugins and integrations</td><td>Physical Stream Deck</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>There is no reason to buy more hardware before testing whether a physical numpad fits your workflow. Start with OBS hotkeys. If the limitations become annoying, move to remapping or a dedicated controller.</p>
+
+          <p>The important improvement is not the number of available commands. It is being able to trigger the right command by touch without leaving the game.</p>
+
+          <div class="article-end-card">
+            <div>
+              <p class="section-kicker">Ready-made option</p>
+              <h2>Try the workflow on Windows.</h2>
+              <p>StreamNumDeck is available as a regular Setup package and a portable ZIP. It has no advertising or telemetry and is free for permitted personal and other non-commercial use.</p>
+            </div>
+            <div class="article-end-actions">
+              <a class="button button-primary" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Download StreamNumDeck <span aria-hidden="true">↓</span></a>
+              <a class="post-read-link" href="https://github.com/nikartom/StreamNumDeck">View source on GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <a class="brand brand-footer" href="../../"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>StreamNumDeck</span></a>
+    <p>Made by nikartom · © 2026</p>
+    <nav aria-label="Footer navigation"><a href="../">Blog</a><a href="https://github.com/nikartom/StreamNumDeck">GitHub</a><a href="../../ru/" lang="ru">Русский</a><a href="https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md">License</a></nav>
+  </footer>
+</body>
+</html>

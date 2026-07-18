@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://streamnumdeck.com/</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-18</lastmod>
   </url>
   <url>
     <loc>https://streamnumdeck.com/ru/</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+  <url>
+    <loc>https://streamnumdeck.com/blog/</loc>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+  <url>
+    <loc>https://streamnumdeck.com/blog/use-numpad-as-stream-deck-for-obs/</loc>
+    <lastmod>2026-07-18</lastmod>
   </url>
 </urlset>
