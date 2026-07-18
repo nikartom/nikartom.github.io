@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Как использовать нампад вместо Stream Deck для OBS в Windows</title>
+  <meta name="description" content="Три способа управлять сценами OBS, микрофоном, записью и буфером повтора с цифрового блока клавиатуры в Windows — без покупки Stream Deck.">
+  <meta name="author" content="nikartom">
+  <meta name="theme-color" content="#090b0d">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://streamnumdeck.com/ru/blog/use-numpad-as-stream-deck-for-obs/">
+  <link rel="alternate" hreflang="en" href="https://streamnumdeck.com/blog/use-numpad-as-stream-deck-for-obs/">
+  <link rel="alternate" hreflang="ru" href="https://streamnumdeck.com/ru/blog/use-numpad-as-stream-deck-for-obs/">
+  <link rel="alternate" hreflang="x-default" href="https://streamnumdeck.com/blog/use-numpad-as-stream-deck-for-obs/">
+  <link rel="icon" href="../../../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../../styles.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="StreamNumDeck">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Как использовать нампад вместо Stream Deck для OBS в Windows">
+  <meta property="og:description" content="Практическое руководство без программирования: превращаем свободные клавиши нампада в физический пульт для OBS.">
+  <meta property="og:url" content="https://streamnumdeck.com/ru/blog/use-numpad-as-stream-deck-for-obs/">
+  <meta property="og:image" content="https://streamnumdeck.com/assets/app-deck-filled.png">
+  <meta property="article:published_time" content="2026-07-18">
+  <meta property="article:author" content="nikartom">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Как использовать нампад вместо Stream Deck для OBS в Windows",
+        "description": "Три практических способа управлять OBS Studio с цифрового блока клавиатуры в Windows без покупки дополнительного устройства.",
+        "image": "https://streamnumdeck.com/assets/app-deck-filled.png",
+        "datePublished": "2026-07-18",
+        "dateModified": "2026-07-18",
+        "author": {"@type": "Person", "name": "nikartom"},
+        "publisher": {"@type": "Organization", "name": "StreamNumDeck", "url": "https://streamnumdeck.com/ru/"},
+        "mainEntityOfPage": "https://streamnumdeck.com/ru/blog/use-numpad-as-stream-deck-for-obs/",
+        "inLanguage": "ru"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://streamnumdeck.com/ru/"},
+          {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://streamnumdeck.com/ru/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Нампад вместо Stream Deck для OBS"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page article-page">
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header blog-header">
+    <a class="brand" href="../../" aria-label="Главная StreamNumDeck">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span>StreamNumDeck</span>
+    </a>
+    <nav class="site-nav" aria-label="Навигация блога">
+      <a href="../../">Программа</a>
+      <a href="../" aria-current="page">Блог</a>
+      <a href="https://github.com/nikartom/StreamNumDeck">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <a class="language-link" href="../../../blog/use-numpad-as-stream-deck-for-obs/" lang="en" hreflang="en" aria-label="Open in English">EN</a>
+      <a class="header-download" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Скачать <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="article-shell">
+      <header class="article-header">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="../../">Главная</a><span>/</span><a href="../">Блог</a><span>/</span><span>Руководство</span></nav>
+        <p class="section-kicker">Управление OBS · Windows</p>
+        <h1>Как использовать нампад вместо Stream Deck для управления OBS в Windows</h1>
+        <p class="article-dek">Свободный цифровой блок полноразмерной клавиатуры можно превратить в физические кнопки для переключения сцен, микрофона, записи и буфера повтора. Разберём три способа и ограничения каждого из них.</p>
+        <p class="post-meta"><span>Автор: nikartom</span><time datetime="2026-07-18">18 июля 2026</time><span>9 минут</span></p>
+      </header>
+
+      <figure class="article-hero-media">
+        <picture>
+          <source srcset="../../../assets/app-deck-filled-820.webp" type="image/webp">
+          <img src="../../../assets/app-deck-filled.png" width="1038" height="1515" alt="StreamNumDeck с назначенными на нампад действиями OBS, звука и трансляции">
+        </picture>
+        <figcaption>Обычный нампад даёт физические кнопки для управления трансляцией без ещё одного устройства на столе.</figcaption>
+      </figure>
+
+      <div class="article-layout">
+        <aside class="article-toc" aria-label="Содержание">
+          <strong>В этой статье</strong>
+          <a href="#short-answer">Короткий ответ</a>
+          <a href="#three-methods">Три способа</a>
+          <a href="#setup">Пошаговая настройка</a>
+          <a href="#num-lock">Два слоя NumLock</a>
+          <a href="#troubleshooting">Решение проблем</a>
+          <a href="#choose">Какой способ выбрать</a>
+        </aside>
+
+        <div class="article-body">
+          <p>Я стал искать более удобный способ управления OBS, когда понял: настроить трансляцию несложно. Гораздо труднее управлять ею во время игры, когда окно игры находится в фокусе.</p>
+
+          <p>Переключить сцену, выключить микрофон или сохранить повтор внутри OBS легко. Но во время игры открывать OBS или вспоминать очередное сочетание клавиш неудобно. Физическая кнопка с одним понятным действием находится на ощупь и меньше отвлекает от происходящего.</p>
+
+          <h2 id="short-answer">Короткий ответ: да, нампад может управлять OBS</h2>
+
+          <p>OBS Studio умеет реагировать на горячие клавиши, даже когда окно программы неактивно. Поэтому клавиши цифрового блока можно назначить на действия трансляции. Подходящий способ зависит от количества команд и от того, нужны ли эти клавиши другим программам.</p>
+
+          <div class="article-callout">
+            <strong>С чего начать</strong>
+            <p>Сначала назначьте три безопасных действия: игровую сцену, включение и выключение микрофона и сохранение буфера повтора. Запуск и остановку трансляции лучше добавлять после того, как расположение кнопок станет привычным.</p>
+          </div>
+
+          <h2 id="three-methods">Три способа превратить нампад в пульт для OBS</h2>
+
+          <h3>Способ 1: назначить клавиши нампада прямо в OBS</h3>
+
+          <p>Это самый простой вариант, для которого не требуется дополнительная программа.</p>
+
+          <ol>
+            <li>Откройте <strong>OBS Studio → Настройки → Горячие клавиши</strong>.</li>
+            <li>Найдите нужную сцену, источник, запись или действие буфера повтора.</li>
+            <li>Щёлкните поле сочетания клавиш и нажмите кнопку нампада.</li>
+            <li>Примените настройки и проверьте команду, когда активно другое окно.</li>
+          </ol>
+
+          <p>В официальном <a href="https://obsproject.com/kb/keyboard-shortcuts">руководстве OBS по клавиатурным сокращениям</a> перечислены сочетания для основного интерфейса. На странице горячих клавиш в настройках также доступны действия ваших сцен и источников.</p>
+
+          <p><strong>Преимущества:</strong> всё уже встроено в OBS, быстро настраивается и подходит для нескольких простых действий.</p>
+
+          <p><strong>Ограничения:</strong> сочетания привязаны к OBS, NumLock может менять значение клавиш, а та же кнопка иногда нужна игре или другой программе. Раскладку приходится помнить, поскольку названия назначений нигде не отображаются.</p>
+
+          <h3>Способ 2: использовать программу для переназначения клавиш или макросов</h3>
+
+          <p>Такая программа может превращать кнопку нампада в редкое сочетание клавиш, которое OBS получает как горячую клавишу. Это помогает, когда игра и OBS претендуют на одну физическую кнопку.</p>
+
+          <p>Это самый гибкий вариант для самостоятельной настройки. В некоторых программах отдельный USB-нампад можно отличать от основной клавиатуры — всё зависит от инструмента и способа обработки ввода.</p>
+
+          <p>Обратная сторона — более сложная настройка. Придётся поддерживать и переназначения, и горячие клавиши OBS. Для составных действий могут понадобиться сценарии, а связь между физической кнопкой и виртуальным сочетанием легко забыть.</p>
+
+          <h3>Способ 3: использовать отдельную программу-контроллер для нампада</h3>
+
+          <p>Специализированный контроллер находится между клавиатурой и OBS. Вместо превращения каждой кнопки в ещё одно сочетание клавиш он подключается к OBS через WebSocket и запрашивает конкретное действие по имени.</p>
+
+          <p>Так можно выбрать сцену или источник из списка, видеть назначения на экране и совмещать управление OBS с громкостью Windows и другими локальными действиями.</p>
+
+          <p>Дальше я покажу настройку на примере <a href="https://streamnumdeck.com/ru/">StreamNumDeck</a> — программы для Windows, которую я создал для этой задачи. Она не является официальным продуктом OBS. Общая схема подходит и другим контроллерам, работающим через OBS WebSocket.</p>
+
+          <h2 id="setup">Пошаговая настройка: подключаем контроллер нампада к OBS</h2>
+
+          <h3>1. Проверьте OBS WebSocket</h3>
+
+          <p>В актуальные версии OBS Studio модуль obs-websocket уже встроен. В OBS откройте <strong>Сервис → Настройки сервера WebSocket</strong>, включите сервер и оставьте аутентификацию включённой.</p>
+
+          <p>Стандартный порт obs-websocket 5.x — <code>4455</code>. Скопируйте созданный пароль, а не заменяйте его чем-то простым. <a href="https://github.com/obsproject/obs-websocket">Официальная документация obs-websocket</a> также рекомендует защищать подключение паролем.</p>
+
+          <h3>2. Введите данные подключения</h3>
+
+          <p>Откройте настройки StreamNumDeck и укажите:</p>
+
+          <ul>
+            <li><strong>Адрес:</strong> <code>127.0.0.1</code>, если OBS работает на том же компьютере.</li>
+            <li><strong>Порт:</strong> <code>4455</code>, если вы не меняли его в OBS.</li>
+            <li><strong>Пароль:</strong> пароль из настроек сервера WebSocket в OBS.</li>
+          </ul>
+
+          <figure class="article-figure article-figure-wide">
+            <img src="../../../assets/blog/numpad-stream-deck-obs/obs-settings.png" width="660" height="760" loading="lazy" alt="Настройки StreamNumDeck с перехватом нампада и полями адреса, порта и пароля OBS WebSocket">
+            <figcaption>Нампад и блок навигационных клавиш можно перехватывать независимо. Подключение к OBS остаётся защищённым паролем WebSocket.</figcaption>
+          </figure>
+
+          <p>Перед сохранением нажмите <strong>Проверить подключение</strong>. Проверка только соединяется с OBS и загружает доступные сцены и источники — она не запускает трансляцию или запись.</p>
+
+          <h3>3. Назначьте одно действие на одну кнопку</h3>
+
+          <p>Выберите физическую клавишу на экранном нампаде. Для первой проверки укажите <strong>OBS Studio → Переключить сцену</strong> и выберите существующую игровую сцену.</p>
+
+          <figure class="article-figure article-figure-wide">
+            <img src="../../../assets/blog/numpad-stream-deck-obs/assign-obs-action.png" width="800" height="912" loading="lazy" alt="Редактор клавиши StreamNumDeck с действиями OBS: переключение сцен, видимость источников, микрофон, запись, трансляция и буфер повтора">
+            <figcaption>Выбор именованного действия OBS избавляет от необходимости вести второй список виртуальных сочетаний клавиш.</figcaption>
+          </figure>
+
+          <p>Первую раскладку лучше сделать простой. Например:</p>
+
+          <ul>
+            <li><strong>NumPad 1:</strong> игровая сцена</li>
+            <li><strong>NumPad 2:</strong> сцена перерыва</li>
+            <li><strong>NumPad 3:</strong> сцена с камерой</li>
+            <li><strong>NumPad 0:</strong> выключение микрофона</li>
+            <li><strong>Десятичная клавиша:</strong> сохранить буфер повтора</li>
+          </ul>
+
+          <p>Проверьте каждое назначение с запущенной OBS и активным окном игры. Делать это впервые во время настоящего эфира не стоит.</p>
+
+          <h2 id="num-lock">Используйте NumLock как второй слой</h2>
+
+          <p>Одного нампада хватает для базовой трансляции. NumLock может удвоить количество назначений, переключая две независимые раскладки.</p>
+
+          <p>Например:</p>
+
+          <div class="layer-example" aria-label="Пример слоёв NumLock">
+            <div><span>NumLock включён</span><strong>NumPad 1</strong><p>Перейти на игровую сцену</p></div>
+            <div><span>NumLock выключен</span><strong>NumPad 1</strong><p>Выключить микрофон</p></div>
+          </div>
+
+          <p>StreamNumDeck объединяет 22 физические кнопки — цифровой блок и шесть навигационных клавиш — с двумя слоями. Поэтому в одном профиле можно назначить до 44 действий.</p>
+
+          <p>Не заполняйте сразу все 44 позиции. Небольшую раскладку проще запомнить, а свободные клавиши уменьшают риск случайного действия.</p>
+
+          <h2 id="troubleshooting">Распространённые проблемы</h2>
+
+          <h3>Нампад печатает цифры вместо выполнения команды</h3>
+
+          <p>Проверьте, включён ли перехват клавиш и выбран ли нужный слой NumLock. Если вы используете горячие клавиши непосредственно в OBS, убедитесь, что назначение сохранилось в настройках OBS.</p>
+
+          <h3>Не удаётся подключиться к OBS</h3>
+
+          <p>Убедитесь, что сервер WebSocket включён, OBS запущена, порт совпадает, а пароль скопирован без ошибок. Если обе программы работают на одном компьютере с Windows, используйте адрес <code>127.0.0.1</code>.</p>
+
+          <h3>Игра тоже реагирует на эту кнопку</h3>
+
+          <p>Горячая клавиша OBS не обязательно резервирует физическую кнопку только для OBS. Выберите другую кнопку, переназначьте её на неиспользуемое сочетание или включите перехват в специализированном контроллере. Игры и античиты обрабатывают ввод по-разному, поэтому каждую игру нужно проверить отдельно.</p>
+
+          <h3>После трансляции мне снова нужен обычный нампад</h3>
+
+          <p>Приостановите перехват после завершения эфира. В StreamNumDeck сочетание <code>Ctrl + Alt + F12</code> всегда переключает перехват; сделать это также можно через значок программы в области уведомлений.</p>
+
+          <h3>Windows SmartScreen показывает предупреждение о неизвестном издателе</h3>
+
+          <p>Текущий установщик StreamNumDeck пока не подписан коммерческим сертификатом. Скачивайте его только с официального сайта или из репозитория GitHub, при наличии сверяйте опубликованный хеш либо используйте портативный ZIP. Не отключайте защиту Windows целиком ради запуска одной программы.</p>
+
+          <h2 id="choose">Какой способ выбрать?</h2>
+
+          <div class="article-table-wrap">
+            <table>
+              <thead><tr><th>Что вам нужно</th><th>С чего начать</th></tr></thead>
+              <tbody>
+                <tr><td>Два-три простых действия OBS</td><td>Горячие клавиши OBS</td></tr>
+                <tr><td>Отдельный USB-нампад или собственные сценарии</td><td>Программа для переназначения клавиш</td></tr>
+                <tr><td>Именованные сцены и источники, видимые назначения или несколько профилей</td><td>Специализированный контроллер нампада</td></tr>
+                <tr><td>Аппаратный экран с подписями, плагинами и интеграциями</td><td>Физический Stream Deck</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Необязательно покупать дополнительное оборудование, пока вы не проверили, подходит ли нампад вашему рабочему процессу. Начните с горячих клавиш OBS. Если их ограничения начнут мешать, переходите к переназначению или специализированному контроллеру.</p>
+
+          <p>Главное улучшение заключается не в количестве доступных команд, а в возможности на ощупь вызвать нужное действие, не покидая игру.</p>
+
+          <div class="article-end-card">
+            <div>
+              <p class="section-kicker">Готовый вариант</p>
+              <h2>Попробуйте этот способ в Windows.</h2>
+              <p>StreamNumDeck доступен в виде обычного установщика и портативного ZIP. В программе нет рекламы и телеметрии; она бесплатна для разрешённого личного и другого некоммерческого использования.</p>
+            </div>
+            <div class="article-end-actions">
+              <a class="button button-primary" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Скачать StreamNumDeck <span aria-hidden="true">↓</span></a>
+              <a class="post-read-link" href="https://github.com/nikartom/StreamNumDeck">Исходный код на GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <a class="brand brand-footer" href="../../"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>StreamNumDeck</span></a>
+    <p>Сделано nikartom · © 2026</p>
+    <nav aria-label="Навигация в подвале"><a href="../">Блог</a><a href="https://github.com/nikartom/StreamNumDeck">GitHub</a><a href="../../../blog/use-numpad-as-stream-deck-for-obs/" lang="en" hreflang="en">English</a><a href="https://github.com/nikartom/StreamNumDeck/blob/main/LICENSE.md">Лицензия</a></nav>
+  </footer>
+</body>
+</html>
