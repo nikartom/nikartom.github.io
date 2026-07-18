@@ -215,6 +215,13 @@ const copy = {
   }
 }[language];
 
+function getVisibleKeyLabel(key) {
+  return [key.querySelector('small'), key.querySelector('strong')]
+    .filter(Boolean)
+    .map(function (part) { return part.textContent.trim(); })
+    .join(' ');
+}
+
 let activeLayer = 'a';
 let cameraOff = false;
 let micMuted = false;
@@ -440,7 +447,7 @@ function updateLayer() {
     const label = copy.short[action] || action.toUpperCase();
     key.querySelector('strong').textContent = label;
     updateKeyIcon(key, action);
-    key.setAttribute('aria-label', key.querySelector('small').textContent + ': ' + label);
+    key.setAttribute('aria-label', getVisibleKeyLabel(key) + ': ' + label);
   });
 
   showToast(isRussian ? 'Слой ' + layerName + ' включён' : 'Layer ' + layerName + ' active');
@@ -451,7 +458,7 @@ deckKeys.forEach(function (key) {
   const action = getKeyAction(key);
   updateKeyIcon(key, action);
   const spokenLabel = key.dataset['label' + (isRussian ? 'Ru' : 'En')] || copy.short[action] || action;
-  key.setAttribute('aria-label', key.querySelector('small').textContent + ': ' + spokenLabel);
+  key.setAttribute('aria-label', getVisibleKeyLabel(key) + ': ' + spokenLabel);
 
   key.addEventListener('click', function () {
     key.classList.add('is-fired');
@@ -467,7 +474,7 @@ deckKeys.forEach(function (key) {
   });
 });
 
-layerButton.setAttribute('aria-label', copy.layer + ' A');
+layerButton.setAttribute('aria-label', getVisibleKeyLabel(layerButton));
 
 const keyboardAliases = {
   NumpadDivide: 'Divide',

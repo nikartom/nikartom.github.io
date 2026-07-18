@@ -103,7 +103,7 @@
       <a href="blog/">Блог</a>
     </nav>
     <div class="header-tools">
-      <a class="language-link" href="../" lang="en" hreflang="en" aria-label="Switch to English" data-language-select="en">EN</a>
+      <a class="language-link" href="../" lang="en" hreflang="en" aria-label="EN — switch to English" data-language-select="en">EN</a>
       <a class="header-download" href="https://github.com/nikartom/StreamNumDeck/releases/latest">Скачать <span aria-hidden="true">↗</span></a>
     </div>
   </header>
@@ -152,7 +152,7 @@
             </div>
             <div class="stream-stage">
               <div class="game-world">
-                <img class="game-frame" src="../assets/freedoom-gameplay.png" width="1680" height="1050" alt="Кадр игрового процесса свободного ретро-шутера Freedoom">
+                <img class="game-frame" src="../assets/freedoom-gameplay-768.webp" srcset="../assets/freedoom-gameplay-768.webp 768w, ../assets/freedoom-gameplay-1152.webp 1152w, ../assets/freedoom-gameplay-1680.webp 1680w" sizes="(max-width: 600px) calc(100vw - 34px), (max-width: 940px) calc(100vw - 48px), 65vw" width="1680" height="1050" loading="lazy" decoding="async" alt="Кадр игрового процесса свободного ретро-шутера Freedoom">
                 <span class="game-id" aria-hidden="true">FREEDOOM // PHASE 2</span>
               </div>
               <div class="starting-card scene-card">
@@ -165,7 +165,7 @@
               <div class="scene-chip"><span>СЦЕНА</span><strong id="scene-name">Игра</strong></div>
               <div class="camera-card" id="camera-card">
                 <span class="camera-tag"><i></i> КАМ 01</span>
-                <img class="facecam-image" src="../assets/streamer-facecam.jpg" width="400" height="600" alt="">
+                <img class="facecam-image" src="../assets/streamer-facecam-256.webp" srcset="../assets/streamer-facecam-256.webp 256w, ../assets/streamer-facecam-400.webp 400w, ../assets/streamer-facecam-600.webp 600w" sizes="(max-width: 600px) 132px, (max-width: 1200px) 160px, 190px" width="400" height="600" loading="lazy" decoding="async" alt="">
                 <p>Камера скрыта</p>
               </div>
               <div class="chat-stack" aria-hidden="true">
@@ -177,7 +177,7 @@
             </div>
             <div class="mixer-bar">
               <span class="control-pill mic-pill"><i class="mic-icon" aria-hidden="true"></i><b>МИК</b><small id="mic-state">ВКЛ</small></span>
-              <span class="level-meter" aria-label="Уровень микрофона"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="level-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
               <span class="control-pill"><b>ЗВУК ПК</b><small id="desktop-state">−8 дБ</small></span>
               <span class="record-pill" id="record-state"><i></i> ЗАПИСЬ</span>
             </div>
@@ -328,14 +328,24 @@
   </footer>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110767475', 'ym');
+    window.addEventListener('load', function () {
+      var startMetrika = function () {
+        (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110767475', 'ym');
 
-    ym(110767475, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+        window.ym(110767475, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(startMetrika, {timeout: 3000});
+      } else {
+        window.setTimeout(startMetrika, 1500);
+      }
+    }, {once: true});
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/110767475" style="position:absolute; left:-9999px;" alt=""></div></noscript>
   <!-- /Yandex.Metrika counter -->
